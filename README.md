@@ -2,7 +2,7 @@
 ---
 
 ## Répertoire des scripts dynamo publiques développé par BIM One
-### en français:
+### En Français:
 Billets originaux sur notre forum:
 https://www.bimone.com/fr/Blog/scriptDynamo1
 https://www.bimone.com/fr/Blog/scriptDynamo2
@@ -21,7 +21,7 @@ Notre objectif est d’assurer un suivi **une fois par semaine.**
 
 ## Directory of all public dynamo scripts developped by BIM One
 
-### en anglais:
+### In English:
 
 https://www.bimone.com/en/Blog/Dynamoscript1
 https://www.bimone.com/en/Blog/Dynamoscript2
