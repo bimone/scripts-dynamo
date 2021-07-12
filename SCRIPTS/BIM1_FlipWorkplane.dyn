@@ -1,0 +1,573 @@
+{
+  "Uuid": "f6231be0-ff38-4f86-9f16-e64be79e64a1",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "BIM1_FlipWorkplane",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "#Get current selection\nimport clr\nclr.AddReference(\"RevitNodes\")\nimport Revit\nclr.ImportExtensions(Revit.Elements)\nclr.AddReference(\"RevitServices\")\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\n\ndoc = DocumentManager.Instance.CurrentDBDocument\nuidoc=DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument\n\nselect = []\nelements = []\nselect = uidoc.Selection.GetElementIds()\n\nfor i in select:\n\t\telements.append(doc.GetElement(i).ToDSType(True))\n\nOUT = elements",
+      "VariableInputPorts": true,
+      "Id": "79c3b5ac1e4842d485bbea3340bd0560",
+      "Inputs": [
+        {
+          "Id": "773fb38f2532448d93f5311d3ad08867",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0525539a61ac4e28aa0895e1550831a7",
+          "Name": "OUT",
+          "Description": "Résultat du script Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Exécute un script IronPython intégré."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "#Portions of code by Daniel_Woodcock1 on foum.dynamobim.com\nimport clr\n\nclr.AddReference(\"RevitServices\")\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\nfrom RevitServices.Transactions import TransactionManager\ndoc =  DocumentManager.Instance.CurrentDBDocument\n\nclr.AddReference(\"RevitNodes\")\nimport Revit\nclr.ImportExtensions(Revit.Elements)\nclr.ImportExtensions(Revit.GeometryConversion)\n\nclr.AddReference(\"RevitAPI\")\nfrom Autodesk.Revit.DB import *\n\ndef tolist(obj1):\n\tif hasattr(obj1,\"__iter__\"): return obj1\n\telse: return [obj1]\n\nelems = tolist(UnwrapElement(IN[0]))\nresults = []\nTransactionManager.Instance.EnsureInTransaction(doc)\nfor elem in elems:\n#Set opposite condition of plan flip for element\n\tif elem.IsWorkPlaneFlipped == True:\n\t\telem.IsWorkPlaneFlipped = False\n\telse:\n\t\telem.IsWorkPlaneFlipped = True\n\tresults.append(elem.IsWorkPlaneFlipped)\nTransactionManager.Instance.TransactionTaskDone()\nOUT = results",
+      "VariableInputPorts": true,
+      "Id": "74627ec099244471ac3aa5a7c0107db4",
+      "Inputs": [
+        {
+          "Id": "4081d2a9c97341f9854c516d2603a8d4",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b3cf70cedeb241758d226d7adf8290cc",
+          "Name": "OUT",
+          "Description": "Résultat du script Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Exécute un script IronPython intégré."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": true,
+      "Id": "17052a9ee7af4b3b88fab570040bb771",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "2b224a3eba0546dfb7f3979caa85b738",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Sélection entre True et False."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "0525539a61ac4e28aa0895e1550831a7",
+      "End": "4081d2a9c97341f9854c516d2603a8d4",
+      "Id": "fd02bf7690ca427d8c34cbb1774f42a9"
+    },
+    {
+      "Start": "2b224a3eba0546dfb7f3979caa85b738",
+      "End": "773fb38f2532448d93f5311d3ad08867",
+      "Id": "12a3ddd5a6a34f169c8d12e5fedc824a"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Aperçu en arrière-plan",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "79c3b5ac1e4842d485bbea3340bd0560",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 141.72441648251055,
+        "Y": 122.68662089989851
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "74627ec099244471ac3aa5a7c0107db4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 365.0501650444142,
+        "Y": 6.8918237985420205
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Boolean",
+        "Id": "17052a9ee7af4b3b88fab570040bb771",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -37.685602615461363,
+        "Y": 21.337278353299553
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "a1f0895bd0564bc3b53e2f9367a59e5a",
+        "Title": "BIMOne",
+        "Nodes": [
+          "1e2ae7dd43d34445b01657d9dfad100e",
+          "cf86735e55194ce78bd6ab530281426f",
+          "e3865a129c1246498839ff0837274067",
+          "fd79afb8254845849db959a62ff7d183",
+          "ad783d9bcb5b4afcaa545056f32e81aa"
+        ],
+        "Left": -50.320514005577763,
+        "Top": -585.81961989377942,
+        "Width": 1010.9972737574901,
+        "Height": 133.4676768209963,
+        "FontSize": 36.0,
+        "InitialTop": -532.81961989377942,
+        "InitialHeight": 143.15376912447823,
+        "TextblockHeight": 43.0,
+        "Background": "#FFD8D8D8"
+      },
+      {
+        "Id": "d8d5c0f25f4f42a1906f498bd961f949",
+        "Title": "PACKAGE NAME",
+        "Nodes": [
+          "42b11193249f4f9f9656525c30bca276"
+        ],
+        "Left": 1896.7677693823694,
+        "Top": -308.20943195680707,
+        "Width": 299.0,
+        "Height": 184.0,
+        "FontSize": 36.0,
+        "InitialTop": -255.20943195680707,
+        "InitialHeight": 140.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "11e8932a24d24585a8c14e5d4468e5a4",
+        "Title": "MONITORING - description",
+        "Nodes": [
+          "d571514f8afd487198f01f1177ca0df7"
+        ],
+        "Left": 2286.5386555277087,
+        "Top": -308.85814900037735,
+        "Width": 302.0,
+        "Height": 212.0,
+        "FontSize": 36.0,
+        "InitialTop": -212.85814900037735,
+        "InitialHeight": 140.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FF848484"
+      },
+      {
+        "Id": "08844bb3e7144359a469430fe9c788fd",
+        "Title": "ACTION - DATA",
+        "Nodes": [
+          "193833c5aa964be498724fe87924ee95"
+        ],
+        "Left": 1179.4108711574081,
+        "Top": -303.81319164488764,
+        "Width": 306.0,
+        "Height": 141.0,
+        "FontSize": 36.0,
+        "InitialTop": -250.81319164488764,
+        "InitialHeight": 140.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "cce0666b45dd4bf5a9d51e03ed9eb320",
+        "Title": "ACTION - GEOMETRY",
+        "Nodes": [
+          "4767ae8afc704377ac71905a4d106163"
+        ],
+        "Left": 1529.3130082210323,
+        "Top": -306.48263399277289,
+        "Width": 305.0,
+        "Height": 198.0,
+        "FontSize": 36.0,
+        "InitialTop": -210.48263399277289,
+        "InitialHeight": 140.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FF71C6A8"
+      },
+      {
+        "Id": "f9a94f0ceaf94c7697af19aa9ef3501e",
+        "Title": "UI",
+        "Nodes": [
+          "c9e5e90fb6374e3fadfd50c90604397d"
+        ],
+        "Left": 723.91318193669122,
+        "Top": -302.32924022307748,
+        "Width": 319.0,
+        "Height": 155.0,
+        "FontSize": 36.0,
+        "InitialTop": -249.32924022307748,
+        "InitialHeight": 140.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFFFAA45"
+      },
+      {
+        "Id": "5888bd4e838546d496ae8a0434a86ba7",
+        "Title": "CONSTRAINT",
+        "Nodes": [
+          "1170fc7ad8ea4f2c98704d7607a04c31"
+        ],
+        "Left": 319.30363983190045,
+        "Top": -297.768543104635,
+        "Width": 318.0,
+        "Height": 112.0,
+        "FontSize": 36.0,
+        "InitialTop": -244.768543104635,
+        "InitialHeight": 140.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFFF7BAC"
+      },
+      {
+        "Id": "157b06064179448b85e283e195b4b516",
+        "Title": "INPUT",
+        "Nodes": [
+          "5f04599519d34c508b3278ede3729cc7"
+        ],
+        "Left": -28.47834190376534,
+        "Top": -294.6081464080246,
+        "Width": 292.0,
+        "Height": 112.0,
+        "FontSize": 36.0,
+        "InitialTop": -241.6081464080246,
+        "InitialHeight": 140.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFBB87C6"
+      },
+      {
+        "Id": "6dd3d4e66c5b4a12b2f1778f0ad6bc47",
+        "Title": "ACTION - GEOMETRY\r\nFlip items",
+        "Nodes": [
+          "74627ec099244471ac3aa5a7c0107db4"
+        ],
+        "Left": 355.0501650444142,
+        "Top": -133.10817620145798,
+        "Width": 190.19,
+        "Height": 233.0,
+        "FontSize": 36.0,
+        "InitialTop": 6.8918237985420205,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 130.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "26873aef135446248726c6682fe78962",
+        "Title": "ACTION - GEOMETRY\r\nGet Revit Selection",
+        "Nodes": [
+          "79c3b5ac1e4842d485bbea3340bd0560"
+        ],
+        "Left": 131.72441648251055,
+        "Top": -60.313379100101486,
+        "Width": 190.19,
+        "Height": 276.0,
+        "FontSize": 36.0,
+        "InitialTop": 122.68662089989851,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 173.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "378aaa3de43d473587ad011c36df2f05",
+        "Title": "INPUT\r\nForce refresh",
+        "Nodes": [
+          "17052a9ee7af4b3b88fab570040bb771"
+        ],
+        "Left": -47.685602615461363,
+        "Top": -118.66272164670045,
+        "Width": 155.0,
+        "Height": 208.0,
+        "FontSize": 36.0,
+        "InitialTop": 21.337278353299553,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 130.0,
+        "Background": "#FFBB87C6"
+      },
+      {
+        "Id": "e3865a129c1246498839ff0837274067",
+        "Title": "EDITOR\r\n",
+        "Nodes": [],
+        "Left": 764.53680282667619,
+        "Top": -529.66585076930119,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "ad783d9bcb5b4afcaa545056f32e81aa",
+        "Title": "DEPENDANCIES\r\n-\r\nCODE\r\n-",
+        "Nodes": [],
+        "Left": 846.67675975191241,
+        "Top": -532.81961989377942,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "fd79afb8254845849db959a62ff7d183",
+        "Title": "CREATOR\r\nJean-Marc Couffin - Mars 2020 - v1.0\r\nDynamo 2.0",
+        "Nodes": [],
+        "Left": 503.96090753702038,
+        "Top": -530.35194307278311,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "cf86735e55194ce78bd6ab530281426f",
+        "Title": "Copyright:\r\nThis script is provided \"as-is\" under MIT License",
+        "Nodes": [],
+        "Left": 215.19087991663719,
+        "Top": -530.35194307278311,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "1e2ae7dd43d34445b01657d9dfad100e",
+        "Title": "Created by BIMOne\r\nFlip element workplane in section",
+        "Nodes": [],
+        "Left": -40.320514005577763,
+        "Top": -530.33045049261068,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "59a13944ee3e4090918048f0a66cd785",
+        "Title": "BACKEND",
+        "Nodes": [],
+        "Left": 1180.858250177384,
+        "Top": -357.2145072508813,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "e0149c253b5549538d65f1eeb8bbc5a0",
+        "Title": "MONITORING",
+        "Nodes": [],
+        "Left": 2286.3340172676503,
+        "Top": -356.68934149284291,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "d7278951adad43df9100cd920222e874",
+        "Title": "USER INTERFACE",
+        "Nodes": [],
+        "Left": 726.082813399737,
+        "Top": -355.84674122075535,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "65aebf8ad9a74f72b9791459142ad672",
+        "Title": "INPUT",
+        "Nodes": [],
+        "Left": -29.389625107472966,
+        "Top": -342.58211881463444,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "42b11193249f4f9f9656525c30bca276",
+        "Title": "Always name the specific package to facilitate debugging and deployment\r\n\r\nExploding a package helps deployment to clients\r\n\r\nExample:\r\nClockworks 1.5.5",
+        "Nodes": [],
+        "Left": 1906.7677693823694,
+        "Top": -255.20943195680707,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "193833c5aa964be498724fe87924ee95",
+        "Title": "part of the script that affect data: \r\n\r\nExamples: \r\nACTION - DATA - get parameter name from txt file",
+        "Nodes": [],
+        "Left": 1189.4108711574081,
+        "Top": -250.81319164488764,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "c9e5e90fb6374e3fadfd50c90604397d",
+        "Title": "User interface for the script: describe what the UI will do\r\n\r\nExample: \r\nUI - get shared parameter file path",
+        "Nodes": [],
+        "Left": 733.91318193669122,
+        "Top": -249.32924022307748,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "1170fc7ad8ea4f2c98704d7607a04c31",
+        "Title": "Fixed input that should not be set as inputs available through the dynamo player",
+        "Nodes": [],
+        "Left": 329.30363983190045,
+        "Top": -244.768543104635,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "5f04599519d34c508b3278ede3729cc7",
+        "Title": "input by user that should be set as input for the dynamo player",
+        "Nodes": [],
+        "Left": -18.47834190376534,
+        "Top": -241.6081464080246,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "d571514f8afd487198f01f1177ca0df7",
+        "Title": "ckeck the integrity and consistency of data or geometry affected \r\n\r\nExamples: \r\nnumber of rooms matches number of parameters changed",
+        "Nodes": [],
+        "Left": 2296.5386555277087,
+        "Top": -212.85814900037735,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "4767ae8afc704377ac71905a4d106163",
+        "Title": "part of the script that affect  geometry: \r\n\r\nExamples: \r\nACTION - GEOMETRY - translate geometry to new location",
+        "Nodes": [],
+        "Left": 1539.3130082210323,
+        "Top": -210.48263399277289,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": 151.96431093413008,
+    "Y": 631.83118072074126,
+    "Zoom": 0.996788271643059
+  }
+}

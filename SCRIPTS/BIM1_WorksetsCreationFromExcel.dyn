@@ -1,0 +1,3906 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "BIM1_WorksetsCreationFromExcel",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "d2ac3de8172c4f55b421f7498f1e4400",
+      "Inputs": [
+        {
+          "Id": "02dece3419e54bfdb703d467e393b6e6",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "84b115b76fd24098bdd5c90a19a6c6d9",
+          "Name": "amt",
+          "Description": "Layers of nesting to remove.\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c1b21a48864e47f58ecc98e85e155b2e",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amt: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.FilterByBoolMask@var[]..[],var[]..[]",
+      "Id": "7b54073cfe6b41c4825675ef8e64e258",
+      "Inputs": [
+        {
+          "Id": "1a9840bfd0f146ffbd9f1763df5b1925",
+          "Name": "list",
+          "Description": "List to filter.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "27ca3094d7f148e4be1b36fa853ccd2c",
+          "Name": "mask",
+          "Description": "List of booleans representing a mask.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8d8f1879733e41f99f52df2b465af10b",
+          "Name": "in",
+          "Description": "Items whose mask index is true.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e7bbe592bdb04bea9b9fd2a7c66b04d0",
+          "Name": "out",
+          "Description": "Items whose mask index is false.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Filters a sequence by looking up corresponding indices in a separate list of booleans.\n\nList.FilterByBoolMask (list: var[]..[], mask: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.FilterByBoolMask@var[]..[],var[]..[]",
+      "Id": "d67436fce0f84ced8abb922e6bfcdf9d",
+      "Inputs": [
+        {
+          "Id": "440f7db739ec4daf82322e914899357d",
+          "Name": "list",
+          "Description": "List to filter.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "91f1581532404ef29f25f99a942eb86d",
+          "Name": "mask",
+          "Description": "List of booleans representing a mask.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "301f55eed30f423da2e2b515461ab6f7",
+          "Name": "in",
+          "Description": "Items whose mask index is true.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6f3e0a2da6f54a33b7c6e1e38d717f0b",
+          "Name": "out",
+          "Description": "Items whose mask index is false.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Filters a sequence by looking up corresponding indices in a separate list of booleans.\n\nList.FilterByBoolMask (list: var[]..[], mask: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.CreateList, CoreNodeModels",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "4815a0004ada4055a9c2d88f8481fed5",
+      "Inputs": [
+        {
+          "Id": "cb4863b617364e199dd2d532ae7d99e0",
+          "Name": "item0",
+          "Description": "Index de l'élément 0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4bba2865f2834bceafb61faffad38916",
+          "Name": "item1",
+          "Description": "Index de l'élément #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "240f564b7ee144f1b1e2f11e0b91e942",
+          "Name": "list",
+          "Description": "Liste",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Permet de créer une liste des entrées indiquées"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "7be1d6d77ce44dc5810632251c41d206",
+      "Inputs": [
+        {
+          "Id": "849b94e5dfbc4b5599a5f919372d0d11",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4663fcab89b149319a6cf29672197381",
+          "Name": "amt",
+          "Description": "Layers of nesting to remove.\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cb6b9326bc24426d96e9638fed02ff36",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amt: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import clr\nclr.AddReference('RevitAPI')\nfrom Autodesk.Revit.DB import *\n\nclr.AddReference('RevitNodes')\nimport Revit\nclr.ImportExtensions(Revit.GeometryConversion)\nclr.ImportExtensions(Revit.Elements)\n\nclr.AddReference('RevitServices')\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\nfrom RevitServices.Transactions import TransactionManager\n\ndoc = DocumentManager.Instance.CurrentDBDocument\n\n#Converting input from Dynamo to Revit\n\nworkset = UnwrapElement(IN[0])\nnames = IN[1]\n\n\n#rename workset in a transaction\nTransactionManager.Instance.EnsureInTransaction(doc)\n\n# for each workset in the inputted list of worksets\nfor workset, name in zip(workset, names):\n\tWorksetTable.RenameWorkset(doc, WorksetId(workset), name);\n\nTransactionManager.Instance.TransactionTaskDone()\n\nOUT = names",
+      "VariableInputPorts": true,
+      "Id": "67a9823ba01c428e858f21dedb2c276c",
+      "Inputs": [
+        {
+          "Id": "2e42a8b944114f00aedd79e4aa5685b9",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3ede4a43e106462f9361fb26c6a0ee7d",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ffb419f3f0c7493c93aa15696e7e44b1",
+          "Name": "OUT",
+          "Description": "Résultat du script Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Exécute un script IronPython intégré."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Shared",
+      "Id": "d934aa5ea9094f37aa0fd317e038fb67",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7557a821ccbc410ca351136a28807ea9",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Crée une chaîne."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Workset1",
+      "Id": "a72219f2e475441d805df5b14c9ca5fc",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "04fc46d361374c55bbd934c830ff8a81",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Crée une chaîne."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.CreateList, CoreNodeModels",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "0d6372ce9c36440893d5f5b3af237920",
+      "Inputs": [
+        {
+          "Id": "5e8c8fb49b3f4f09b953cd99324f0e29",
+          "Name": "item0",
+          "Description": "Index de l'élément 0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d3db01ac477e4aa5a024df5e07c56bb9",
+          "Name": "item1",
+          "Description": "Index de l'élément #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c3ad6129a99c49b1b87cefb28f520884",
+          "Name": "list",
+          "Description": "Liste",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Permet de créer une liste des entrées indiquées"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Logic.If, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "605fce07184d4a118afd8dcf602c9d3a",
+      "Inputs": [
+        {
+          "Id": "1047081f6f0542e28a05033213ee9e9a",
+          "Name": "test",
+          "Description": "Tester le bloc",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1128f71a13a44066b89c61c5ca546017",
+          "Name": "true",
+          "Description": "Bloc True",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "18cd90a39d3f4533a376955aa6c5c71d",
+          "Name": "false",
+          "Description": "Bloc faux",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "95707c918201455cbeb9b3be599c6317",
+          "Name": "result",
+          "Description": "résultat",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Instruction conditionnelle"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Sous-projet 1",
+      "Id": "a861c763791c4d269bbbce01060c2b2d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "111b448631a24fafac58d6269d16efa5",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Crée une chaîne."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Logic.If, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "f499e949798f40488b1890e7c596dd1a",
+      "Inputs": [
+        {
+          "Id": "999db59c107b4a7ba70432de41dc8ba2",
+          "Name": "test",
+          "Description": "Tester le bloc",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2735d2faf1f34b9ebedf8c37cb5c1893",
+          "Name": "true",
+          "Description": "Bloc True",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bf1bb93674ac4feab71d15595c5a8ace",
+          "Name": "false",
+          "Description": "Bloc faux",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "04ba91d1b8bf49f498bf01acbf168ae9",
+          "Name": "result",
+          "Description": "résultat",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Instruction conditionnelle"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "partagés",
+      "Id": "3659456691644d679be279ce469a63bd",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0ec1e17ef6464814b43435e652492421",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Crée une chaîne."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import clr\r\nclr.AddReference('RevitServices')\r\nfrom RevitServices.Persistence import DocumentManager\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\nOUT = doc.Application.Language==\"French\"",
+      "VariableInputPorts": true,
+      "Id": "f5bea5ee53cd4f079642f9bc8d7878be",
+      "Inputs": [
+        {
+          "Id": "e4c04c077c0941b7bb7f43fac75c2518",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "01bc49e23dee479a967be51ab4f8ea8d",
+          "Name": "OUT",
+          "Description": "Résultat du script Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Exécute un script IronPython intégré."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.String.ToUpper@string",
+      "Id": "d00edf82cb6846fab289bd6b5dbcc67e",
+      "Inputs": [
+        {
+          "Id": "98eb0ccd52c64603a3902fa494ccc82b",
+          "Name": "str",
+          "Description": "String to be made uppercase.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c53b29cd26cc40d6a100e4aeb167601f",
+          "Name": "str",
+          "Description": "Uppercase string.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Converts the given string to all uppercase characters.\n\nString.ToUpper (str: string): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.FirstItem@var[]..[]",
+      "Id": "d606eaaa16934006a13e789ca2ac9106",
+      "Inputs": [
+        {
+          "Id": "27dbecfecb1f4ab6be28aa52b02de811",
+          "Name": "list",
+          "Description": "List to get the first item from.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": true,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d357a6adc48d4964a5b9506eeeca30a6",
+          "Name": "item",
+          "Description": "First item in the list.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the first item in a list.\n\nList.FirstItem (list: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSVarArgFunction, DynamoCore",
+      "FunctionSignature": "DSCore.String.Split@string,string[]",
+      "FunctionType": "VariableArgument",
+      "NodeType": "FunctionNode",
+      "Id": "631c0164675d4a6fb392d78c869dbe9b",
+      "Inputs": [
+        {
+          "Id": "1bf82c7147ce4f7c9086f319db86ce6d",
+          "Name": "str",
+          "Description": "String to split up.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4deda682e2624aa88db804ef0df6a0b3",
+          "Name": "separator0",
+          "Description": "Strings that, if present, determine the end and start of a split.\n\nstring[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "358a3af9b53b4d889164fd912e8589c8",
+          "Name": "strings",
+          "Description": "List of strings made from the input string.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Divides a single string into a list of strings, with divisions determined by the given separator strings.\n\nString.Split (str: string, separators: string[]): string[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.UniqueItems@var[]..[]",
+      "Id": "f8559ed01e0f4b76a521d8131df3490b",
+      "Inputs": [
+        {
+          "Id": "c1e6054dc10c43e895a1d90fe4d35f53",
+          "Name": "list",
+          "Description": "List to filter duplicates out of.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8fc986e9a4724b068bd6fe290c8292cf",
+          "Name": "list",
+          "Description": "Filtered list.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a new list containing all unique items in the given list.\n\nList.UniqueItems (list: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": ".",
+      "Id": "cde3ad82982d4f15bdeb0c579d262d30",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "de8663692e0d49f595604032b79e1894",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Crée une chaîne."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.FirstItem@var[]..[]",
+      "Id": "fa2d8d5cd9f147a6a418a2a542efaffc",
+      "Inputs": [
+        {
+          "Id": "5a4611b792724c288cefb4f28c00e4e5",
+          "Name": "list",
+          "Description": "List to get the first item from.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": true,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e07a1d4bdd204737a0256f189a67e3ba",
+          "Name": "item",
+          "Description": "First item in the list.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the first item in a list.\n\nList.FirstItem (list: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSVarArgFunction, DynamoCore",
+      "FunctionSignature": "DSCore.String.Split@string,string[]",
+      "FunctionType": "VariableArgument",
+      "NodeType": "FunctionNode",
+      "Id": "e882027408f44c029978715e8ccda1fd",
+      "Inputs": [
+        {
+          "Id": "3768f3cfe2ad47c8bda2341a3c7076a6",
+          "Name": "str",
+          "Description": "String to split up.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3a8a8c1549df4f849cf3d16c93327f91",
+          "Name": "separator0",
+          "Description": "Strings that, if present, determine the end and start of a split.\n\nstring[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e2291ee1040840c5b3a46117cf90828f",
+          "Name": "strings",
+          "Description": "List of strings made from the input string.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Divides a single string into a list of strings, with divisions determined by the given separator strings.\n\nString.Split (str: string, separators: string[]): string[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": ":",
+      "Id": "4935b234bc85456b95d4e78e6156e394",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "2be10aae3a444a88b461afb2405de615",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Crée une chaîne."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "#Copyright(c) 2015, Konrad K Sobon\r\n# @arch_laboratory, http://archi-lab.net\r\n\r\nimport clr\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\n\r\n# Import DocumentManager and TransactionManager\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\nfrom System.Collections.Generic import *\r\n\r\n# Import RevitAPI\r\nclr.AddReference(\"RevitAPI\")\r\nimport Autodesk\r\nfrom Autodesk.Revit.DB import *\r\nfrom Autodesk.Revit.DB.Analysis import *\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\nuiapp = DocumentManager.Instance.CurrentUIApplication\r\napp = uiapp.Application\r\n\r\n# Import ToDSType(bool) extension method\r\nclr.AddReference(\"RevitNodes\")\r\nimport Revit\r\nclr.ImportExtensions(Revit.Elements)\r\n\r\n#The inputs to this node will be stored as a list in the IN variable.\r\ndataEnteringNode = IN\r\n\r\ncollector = Autodesk.Revit.DB.FilteredElementCollector(doc)\r\nlinkInstances = collector.OfClass(Autodesk.Revit.DB.RevitLinkInstance)\r\n\r\nlinkDoc, linkName, linkInstId = [], [], []\r\nfor i in linkInstances:\r\n\tlinkDoc.append(i.GetLinkDocument())\r\n\tlinkName.append(i.Name)\r\n\tlinkInstId.append(i.Id)\r\n\r\nOUT = linkName",
+      "VariableInputPorts": true,
+      "Id": "8b9e5b9a88a249fb83aa64a605e6a6b2",
+      "Inputs": [
+        {
+          "Id": "fe165b085e6b429abef75bc1873e9e7a",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5e3856c4420a4cb2b8bd913a9023d6ac",
+          "Name": "OUT",
+          "Description": "Résultat du script Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Exécute un script IronPython intégré."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Empty",
+      "Id": "92351965f6d9487f8862ef2e0782b42d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7f18ecda1a0043faac46c22dd8e01305",
+          "Name": "list",
+          "Description": "Empty list.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns an Empty List.\n\nList.Empty: var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"ZL_\"+a;",
+      "Id": "396bb0c31f44479cb99bfa78c111d259",
+      "Inputs": [
+        {
+          "Id": "15254e7c92054dd7976cac36956ea731",
+          "Name": "a",
+          "Description": "a",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8cc168d07f0247a08a2b5b91fad831f7",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.String.Contains@string,string,bool",
+      "Id": "9691852578084ef28c09de5bf3799e38",
+      "Inputs": [
+        {
+          "Id": "d2346dc96d224b0faed3c6a29e775b1d",
+          "Name": "str",
+          "Description": "String to search in.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "40aa158ed4674239bd89a04bf176767f",
+          "Name": "searchFor",
+          "Description": "Substring to search for.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7c73707b235f4281a9e1ecf58b0a2248",
+          "Name": "ignoreCase",
+          "Description": "Whether or not comparison takes case into account.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b74f6bb8836641abb75a40b2e2bb334f",
+          "Name": "bool",
+          "Description": "Whether the string contains the substring.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Determines if the given string contains the given substring.\n\nString.Contains (str: string, searchFor: string, ignoreCase: bool = false): bool"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.String.Contains@string,string,bool",
+      "Id": "acbd47dccffc423f8dd6ab4bc0b49102",
+      "Inputs": [
+        {
+          "Id": "c5f78a3defda48f582703f5c4b9e0236",
+          "Name": "str",
+          "Description": "String to search in.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9f23289e45ac49afaa7434cb8e2cb598",
+          "Name": "searchFor",
+          "Description": "Substring to search for.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "aa715caa4dbe467b87492d3ffdaa428d",
+          "Name": "ignoreCase",
+          "Description": "Whether or not comparison takes case into account.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a45c08753cae403fbaa6b792ed68dc17",
+          "Name": "bool",
+          "Description": "Whether the string contains the substring.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Determines if the given string contains the given substring.\n\nString.Contains (str: string, searchFor: string, ignoreCase: bool = false): bool"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.CreateList, CoreNodeModels",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "5e8efe882d9045b6b3ea1bbebdbd692b",
+      "Inputs": [
+        {
+          "Id": "14719c96e0bf4886b652731953d0fbab",
+          "Name": "item0",
+          "Description": "Index de l'élément 0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e5162822a927455eaadf4a66f4670922",
+          "Name": "item1",
+          "Description": "Index de l'élément #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "acc3add185c14c1fadd14787b2010eb3",
+          "Name": "item2",
+          "Description": "Index de l'élément #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "79f13d44da7f45b2a40b9ec44a704f57",
+          "Name": "list",
+          "Description": "Liste",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Permet de créer une liste des entrées indiquées"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "#Rhythm\n#sixtysecondrevit.blogspot.com\nimport clr\nclr.AddReference('ProtoGeometry')\nfrom Autodesk.DesignScript.Geometry import *\n# Import ToDSType(bool) extension method\nclr.AddReference(\"RevitNodes\")\nimport Revit\nclr.ImportExtensions(Revit.Elements)\n# Import geometry conversion extension methods\nclr.ImportExtensions(Revit.GeometryConversion)\n# Import DocumentManager and TransactionManager\nclr.AddReference(\"RevitServices\")\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\nfrom RevitServices.Transactions import TransactionManager\nfrom System.Collections.Generic import *\n# Import RevitAPI\nclr.AddReference(\"RevitAPI\")\nimport Autodesk\nfrom Autodesk.Revit.DB import *\n\ndoc = DocumentManager.Instance.CurrentDBDocument\nuiapp = DocumentManager.Instance.CurrentUIApplication\napp = uiapp.Application\nuidoc=DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument\n\nworksetnames = IN[0]\nmDoc = DocumentManager.Instance.CurrentDBDocument\nnewWorksets = list()\n\n# Start Transaction\nTransactionManager.Instance.EnsureInTransaction(doc)\n\nfor name in worksetnames:\n\tWorkset.Create(mDoc,name)\n\tnewWorksets.append(name)\n\n# End Transaction\nTransactionManager.Instance.TransactionTaskDone()\n\nOUT = newWorksets",
+      "VariableInputPorts": true,
+      "Id": "53cb173b743f4b92a9e8935e3047f623",
+      "Inputs": [
+        {
+          "Id": "c3bc0a1e66cc4191956c12c746c1cd88",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e7ba7946f55348aebba06818fe0ba3dd",
+          "Name": "OUT",
+          "Description": "Résultat du script Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Exécute un script IronPython intégré."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "967ffbd56c8c415eb76391adc36ee5c2",
+      "Inputs": [
+        {
+          "Id": "d041d3119f434151b697c650bfaf709a",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c5f3f19014b34231896453c8eeebec06",
+          "Name": "amt",
+          "Description": "Layers of nesting to remove.\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4cf57d0fc8e248e1be13dc84893ed223",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amt: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[\"Worksets created\",\n\"\"];",
+      "Id": "693fa59cfeca40b29b450b8df4bc43b5",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "90e45468392d405aaa11c7ce60169198",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[\"\",\"System worksets modified\",\n\"\"];",
+      "Id": "61c6a49628274e02a902e1fdb9393a3e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "85ebc769199b4b299ee98e82abbe12a6",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Filename, CoreNodeModels",
+      "HintPath": "G:\\Mon Drive\\B1M-Technical\\00_BIM1_STANDARDS\\01_LOGICIELS_OUTILS\\DYNAMO\\01_SCRIPTS\\PACK 04 _\\Worksets.xlsx",
+      "InputValue": "..\\PACK 04 _\\Worksets.xlsx",
+      "NodeType": "ExtensionNode",
+      "Id": "799e656a654948c4acad9b641d2a702a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "5f49f90431e3446cbfc501159a25be39",
+          "Name": "",
+          "Description": "Filename",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a file on the system to get its filename"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "false;",
+      "Id": "fde3b11cdc474e11abb4172c60a7c224",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "bfe21cace77042f18937146a6d842de3",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.RemoveItemAtIndex@var[]..[],int[]",
+      "Id": "a3b5a58b2ddf4ee88394a1fcb39da43c",
+      "Inputs": [
+        {
+          "Id": "c6e03e763b8d41f8984695d779725808",
+          "Name": "list",
+          "Description": "List to remove an item or items from.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": true,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "91b776d09904420babcfcb73ba964e51",
+          "Name": "indices",
+          "Description": "Index or indices of the item(s) to be removed.\n\nint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7d23c3fbdaf844d19262c286bd525fab",
+          "Name": "list",
+          "Description": "List with items removed.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Removes an item from the given list at the specified index.\n\nList.RemoveItemAtIndex (list: var[]..[], indices: int[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Clean@var[]..[],bool",
+      "Id": "c7525d6862164909bad9ef48c1ea0da9",
+      "Inputs": [
+        {
+          "Id": "2d6a1b9f85564837b6432aa753b3bccd",
+          "Name": "list",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8d661ce2f2b642edb70c501dfd1cc802",
+          "Name": "preserveIndices",
+          "Description": "Provide an option to preserve the indices of the data such that non-trailing nulls may not be filtered out\n\nbool\nDefault value : true",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "993af9b932e8435b98a84ad94808cb3f",
+          "Name": "var[]..[]",
+          "Description": "A list cleaned of nulls and empty lists",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Cleans data of nulls and empty lists from a given list of arbitrary dimension\n\nList.Clean (list: var[]..[], preserveIndices: bool = true): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0;",
+      "Id": "a970f35470544a5c940eb25c537194aa",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e79cfe65a8ad488e9fbc496a4c4d8d7d",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "x[0];\nx[1];\nx[2];\nx[3];\nx[4];",
+      "Id": "6b34ae4da9554ffcbd130804b2f8fde3",
+      "Inputs": [
+        {
+          "Id": "1a898b9969614e66b6e2b277c4eb082b",
+          "Name": "x",
+          "Description": "x",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c336d1e11607413faa6096b47df3b656",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1269fcffab044cd6ad95ca6fd2f9c064",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cb6caf2401814fd698a7abc8d23f74fb",
+          "Name": "",
+          "Description": "Value of expression at line 3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "419a1e1d5b094cfaa302362bc5cc6906",
+          "Name": "",
+          "Description": "Value of expression at line 4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "36112f7cf53d4a3097d29031d2ed6f39",
+          "Name": "",
+          "Description": "Value of expression at line 5",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.FileObject, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "719a23a341ef4ed1ba8f433f74601e76",
+      "Inputs": [
+        {
+          "Id": "ed6f8a348b5942c1bd03466db9749b1c",
+          "Name": "path",
+          "Description": "Path to the file.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "accce8648b1c48c6a1877eb59fb17184",
+          "Name": "file",
+          "Description": "File object",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a file object from a path."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "true;",
+      "Id": "4e6d475b3cb04a8eb87f2eb70fa16316",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "823ce9a71be144f8927e0060ab792b3b",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "true;",
+      "Id": "2c4f4c7ee76e4880b3170e848d2aea90",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "dca2064652df4025b533dd455ef73312",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSOffice.Data.ImportExcel@var,string,bool,bool",
+      "Id": "d78c9d15cd4d4a0397916597bd6b042e",
+      "Inputs": [
+        {
+          "Id": "7c78cb88e0f04617aa286493f4a2bcac",
+          "Name": "file",
+          "Description": "File representing the Microsoft Excel spreadsheet.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bbdf7f4c985b424d8f4b6fb2f546de2b",
+          "Name": "sheetName",
+          "Description": "Name of the worksheet containing the data.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "89985e48b88d4dd593b6be385cab9ed0",
+          "Name": "readAsStrings",
+          "Description": "Toggle to switch between reading Excel file as strings.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ce18f6dcb82242f78c9aa8bed8097dfd",
+          "Name": "showExcel",
+          "Description": "Toggle to switch between showing and hiding the main Excel window.\n\nbool\nDefault value : true",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0b423ccaad3444f5adda880676a18117",
+          "Name": "data",
+          "Description": "Rows of data from the Excel worksheet.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Read data from a Microsoft Excel spreadsheet. Data is read by row and returned in a series of lists by row. Rows and columns are zero-indexed; for example, the value in cell A1 will appear in the data list at [0,0]. This node requires Microsoft Excel to be installed.\n\nData.ImportExcel (file: var, sheetName: string, readAsStrings: bool = false, showExcel: bool = true): var[][]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"Excel\";",
+      "Id": "de0e9dcade2949fa97928daf5ccb1d74",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "30fe251afc8e4a1ea166b4a36a8f5387",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "true;",
+      "Id": "4ca54353a00f417d96febf713c102da3",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "19634f3a99ab4a7fabddb0b9c74754ac",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "OUT[0];\nOUT[1];\nOUT[2];",
+      "Id": "8720b1942cb44b9484d139a37209200c",
+      "Inputs": [
+        {
+          "Id": "14e65b9c1da94ae0abeb1aef4b68932c",
+          "Name": "OUT",
+          "Description": "OUT",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a6b3e19f00204477b74c38e55f1ca55a",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5d3a22ef11834c769df7b5c08907402b",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "aba52351fc4e475cbd915e12ae784887",
+          "Name": "",
+          "Description": "Value of expression at line 3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"Ok\";",
+      "Id": "c7d7749997364e96a01287a1ff59faa9",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "71d9441dc9cf47ae83546c50e020014e",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"\";",
+      "Id": "e721aa857c574486a907e9f9ba70b5bd",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "4518a9c8914f450da80efa82ffffcf5d",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "Logo_optional: var = \"\";",
+      "Id": "fc7d20495b45486eaa1324b34db827f7",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ed90f219e3fa46e38c22f31cdc78390b",
+          "Name": "",
+          "Description": "Logo_optional",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"Annuler\";",
+      "Id": "e20b51cf500b44cd8248b5ce6c33a63f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b87919db32de43818024fcfef9592ec7",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "null;",
+      "Id": "0e21eb60e0024c1caa70b504467f7a17",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "d508d87fd8974083aa16141127c47e78",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0;",
+      "Id": "fdb5414973bf4d5a861d94a10f92f305",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "feda317ae5cc45bc8e98b3205623364a",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "600;",
+      "Id": "bdcf169936034056a2fdb246e8d9cd42",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "2b5b8c0ea30d44dbba454998b446a6ec",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "false;",
+      "Id": "51c509e910514dce89af397b7c198dd0",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3f52525ee33649408a8751b32f7ea94a",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "#Copyright (c) Data Shapes,  2018\r\n#Data-Shapes www.data-shapes.net , elayoubi.mostafa@data-shapes.io @data_shapes\r\n\t\r\nimport clr\r\nimport sys\r\npyt_path = r'C:\\Program Files (x86)\\IronPython 2.7\\Lib'\r\nsys.path.append(pyt_path)\r\nimport os\r\nimport webbrowser\r\nimport unicodedata\r\nimport io\r\n\t\r\ntry:\r\n\tclr.AddReference('System.Windows.Forms')\r\n\tclr.AddReference('System.Drawing')\r\n\tclr.AddReference('System.Windows.Forms.DataVisualization')\r\n\t\r\n\tfrom System.Drawing import Point , Size , Graphics, Bitmap, Image, Font, FontStyle, Icon, Color, Region , Rectangle , ContentAlignment , SystemFonts\r\n\tfrom System.Windows.Forms import Application, DockStyle, Button, Form, Label, TrackBar , ToolTip, ColumnHeader, TextBox, CheckBox, FolderBrowserDialog, OpenFileDialog, DialogResult, ComboBox, FormBorderStyle, FormStartPosition, ListView, ListViewItem , SortOrder, Panel, ImageLayout, GroupBox, RadioButton, BorderStyle, PictureBox, PictureBoxSizeMode, LinkLabel, CheckState, ColumnHeaderStyle , ImageList, VScrollBar, DataGridView, DataGridViewSelectionMode, DataGridViewAutoSizeColumnsMode , DataGridViewClipboardCopyMode , TreeView , TreeNode , TreeNodeCollection , AutoScaleMode , Screen\r\n\tfrom System.Windows.Forms.DataVisualization.Charting import Chart , SeriesChartType\r\n\tfrom System.Collections.Generic import *\r\n\tfrom System.Collections.Generic import List as iList\r\n\tfrom System.Windows.Forms import View as vi\r\n\tclr.AddReference('System')\r\n\tfrom System import IntPtr , Char\r\n\tfrom System import Type as SType, IO\r\n\tfrom System.ComponentModel import Container\r\n\tclr.AddReference('System.Data')\r\n\tfrom System.Data import DataTable , DataView\r\n\r\n\t\r\n\tclr.AddReference('RevitAPIUI')\r\n\tfrom  Autodesk.Revit.UI import Selection , TaskDialog \r\n\tfrom  Autodesk.Revit.UI.Selection import ISelectionFilter\r\n\t\r\n\timportcolorselection = 0\r\n\t\r\n\ttry:\r\n\t\tfrom  Autodesk.Revit.UI import ColorSelectionDialog\r\n\texcept:\r\n\t\timportcolorselection = 1\r\n\t\r\n\tclr.AddReference('RevitNodes')\r\n\timport Revit\r\n\tclr.ImportExtensions(Revit.Elements)\r\n\tclr.ImportExtensions(Revit.GeometryConversion)\r\n\t\r\n\tclr.AddReference('RevitServices')\r\n\tfrom RevitServices.Persistence import DocumentManager\r\n\tdoc = DocumentManager.Instance.CurrentDBDocument\r\n\tuidoc = DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument\r\n\r\n\tclr.AddReference('RevitAPI')\r\n\tfrom Autodesk.Revit.DB import FilteredElementCollector , View , ViewType , ElementId , FamilyInstance , Document , UnitType , UnitUtils\r\n\tdbviews = [v for v in FilteredElementCollector(doc).OfClass(View).ToElements() if (v.ViewType == ViewType.FloorPlan or v.ViewType == ViewType.CeilingPlan or v.ViewType == ViewType.Section or v.ViewType == ViewType.Elevation or v.ViewType == ViewType.ThreeD)]\r\n\tviewindex = 0\r\n\t\r\n\tclr.AddReference('ProtoGeometry')\r\n\tfrom Autodesk.DesignScript.Geometry import Point as dsPoint\r\n\r\n\tfrom System.Reflection import Assembly\r\n\timport xml.etree.ElementTree as et\r\n\t\r\n\tUIunit = Document.GetUnits(doc).GetFormatOptions(UnitType.UT_Length).DisplayUnits\r\n\t\r\n\timport re\t\r\n\tdef regexEndNum(input):\r\n\t\ttry:\r\n\t\t\treturn \tre.search('(\\d+)$', input).group(0)\r\n\t\texcept:\r\n\t\t\treturn \"\"\r\n\r\n\tdef iterateThroughNodes(collection,li):\r\n\t\tif hasattr(collection,'Nodes'):\r\n\t\t\tntest = collection.Nodes\r\n\t\t\tif len(ntest) > 0:\r\n\t\t\t\tfor i in ntest:\r\n\t\t\t\t\titerateThroughNodes(i,li)\r\n\t\t\telse:\r\n\t\t\t\tif collection.Checked:\r\n\t\t\t\t\tli.append(collection.Tag)\r\n\t\treturn li\r\n\t\t\r\n\tclass selectionfilter(ISelectionFilter):\r\n\t\tdef __init__(self,category):\r\n\t\t\tself.category = category\r\n\t\tdef AllowElement(self,element):\r\n\t\t\tif element.Category.Name in [c.Name for c in self.category]:\r\n\t\t\t\treturn True\r\n\t\t\telse:\r\n\t\t\t\treturn False\r\n\t\tdef AllowReference(reference,point):\r\n\t\t\treturn False\r\n\t\r\n\tclass MultiTextBoxForm(Form):\r\n\t\t\r\n\t    def __init__(self):\r\n\t        self.Text = 'BIM One Inc. | Create worksets from excel data | UI powered by Datashapes'\r\n\t        self.output = []\r\n\t        self.values = []\r\n\t        self.cancelled = False\r\n\t\r\n\t    def setclose(self, sender, event):\r\n\t    \tcbindexread = 0\r\n\t    \tif sender.Name != \"Cancel\":\r\n\t    \t\tfor f in self.output:\r\n\t    \t\t\tif f.GetType() == myTextBox:\r\n\t    \t\t\t\tif f._isNum :\r\n\t    \t\t\t\t\tval = float(f.Text)\r\n\t    \t\t\t\telse:\r\n\t    \t\t\t\t\tval = f.Text\r\n\t    \t\t\t\tself.values.append(val)\r\n\t    \t\t\tif f.GetType() == CheckBox:\r\n\t    \t\t\t\tself.values.append(f.Checked)\r\n\t    \t\t\tif f.GetType() == Button:\r\n\t    \t\t\t\tif isinstance(f.Tag ,list):\r\n\t    \t\t\t\t\tself.values.append([e for e in f.Tag if e.__class__.__name__ != \"Category\"])\r\n\t    \t\t\t\telse:\t    \t\t\t\t\t\r\n\t    \t\t\t\t\tif f.Tag.__class__.__name__ != \"Category\":\r\n\t    \t\t\t\t\t\tself.values.append(f.Tag)\r\n\t    \t\t\t\t\telse:\r\n    \t\t\t\t\t\t\tself.values.append([])\r\n\r\n\t    \t\t\tif f.GetType() == ComboBox:\r\n\t    \t\t\t\ttry:\r\n\t    \t\t\t\t\tkey = f.Text\r\n\t    \t\t\t\t\tself.values.append(f.Tag[key])\r\n\t    \t\t\t\texcept:\r\n\t    \t\t\t\t\tself.values.append(None)\r\n\t    \t\t\tif f.GetType() == mylistview:\r\n\t    \t\t\t\tself.values.append([f.Values[i.Text] for i in f.CheckedItems])\r\n\t    \t\t\tif f.GetType() == mytrackbar:\r\n\t    \t\t\t\tself.values.append(f.startval+f.Value*f.step)\r\n\t    \t\t\tif f.GetType() == mygroupbox:\r\n\t    \t\t\t\ttry:\r\n\t    \t\t\t\t\tkey = [j.Text for j in f.Controls if j.Checked == True][0]\r\n\t    \t\t\t\t\tself.values.append(f.Tag[key])\r\n\t    \t\t\t\texcept:\r\n\t    \t\t\t\t\tself.values.append(None)\r\n\t    \t\t\tif f.GetType() == myDataGridView:\r\n\t    \t\t\t\tf.EndEdit()\r\n\t    \t\t\t\tdsrc = f.DataSource\r\n\t    \t\t\t\tout = []\r\n\t    \t\t\t\tcolcount = f.ColumnCount\r\n\t    \t\t\t\trowcount = f.RowCount - 1\r\n\t    \t\t\t\tif f.Tag:\r\n\t\t    \t\t\t\tl = []\r\n\t    \t\t\t\t\tfor i in range(colcount):\t    \t\t\t\t\t\t\r\n\t    \t\t\t\t\t\tl.append(dsrc.Columns[i].ColumnName)\r\n\t    \t\t\t\t\tout.append(l)\t    \t\t\t\t\t\t\r\n\t\t    \t\t\t\tfor r in range(rowcount):\r\n\t\t    \t\t\t\t\tl = []\r\n\t\t    \t\t\t\t\tfor i in range(colcount):\r\n\t\t    \t\t\t\t\t\tl.append(dsrc.DefaultView[r].Row[i])\r\n\t\t    \t\t\t\t\tout.append(l)\r\n\t    \t\t\t\telse: \r\n\t\t    \t\t\t\tfor r in range(rowcount):\r\n\t\t    \t\t\t\t\tl = []\r\n\t\t    \t\t\t\t\tfor i in range(colcount):\r\n\t\t    \t\t\t\t\t\tl.append(dsrc.DefaultView[r].Row[i])\r\n\t\t    \t\t\t\t\tout.append(l)\r\n\t    \t\t\t\tself.values.append(out)\r\n\t    \t\t\tif f.GetType() == TreeView:\r\n\t    \t\t\t\tls = []\r\n\t    \t\t\t\tnds = f.Nodes[0]\r\n\t    \t\t\t\titerateThroughNodes(nds,ls)\r\n\t    \t\t\t\tself.values.append(ls)\r\n\t    \t\t\tif f.GetType() == GroupBox:\r\n\t    \t\t\t\trb = [c for c in f.Controls if c.GetType() == RadioButton and c.Checked][0]\r\n\t    \t\t\t\tself.values.append(rb.Text)\r\n\t    \t\t\t\tf.Controls.Remove(rb)\r\n\t    \telse:\r\n\t    \t\tself.values = None\r\n\t    \t\tself.cancelled = True\r\n\t    \tself.Close()\r\n\t\r\n\t    def reset(self, sender, event):\r\n\t\t\tpass\r\n\t\r\n\t    def openfile(self, sender, event):\r\n\t\t\tofd = OpenFileDialog()\r\n\t\t\tdr = ofd.ShowDialog()\r\n\t\t\tif dr == DialogResult.OK:\r\n\t\t\t\tsender.Text = ofd.FileName\r\n\t\t\t\tsender.Tag = ofd.FileName\r\n\r\n\t    def exportToExcel(self, sender, event):\r\n\t    \t#importing Excel IronPython libraries\r\n\t    \tclr.AddReferenceByName('Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c')\r\n\t    \tfrom Microsoft.Office.Interop import Excel\r\n\t    \tex = Excel.ApplicationClass()\r\n\t    \tex.Visible = sender.Tag[1]\r\n\t    \tex.DisplayAlerts = False\r\n\t    \tfbd = FolderBrowserDialog()\r\n\t    \tfbd.SelectedPath = sender.Text\r\n\t    \tparent = sender.Parent\r\n\t    \tfptextbox = parent.GetChildAtPoint(Point(parent.Location.X,sender.Location.Y+5*yRatio))\r\n\t    \tdataGrid = parent.GetChildAtPoint(Point(parent.Location.X,parent.Location.Y+23*xRatio))\r\n\t    \tdataTable = dataGrid.DataSource\r\n\t    \tfptext = fptextbox.Text\r\n\t    \ttitletext = parent.GetChildAtPoint(Point(0,0)).Text\r\n\t    \tdr = fbd.ShowDialog()\r\n\t    \tfrstRwTtle = sender.Tag[0]\r\n\t    \tif frstRwTtle:\r\n\t    \t\t_header = Excel.XlYesNoGuess.xlYes\r\n\t    \telse:\r\n\t    \t\t_header = Excel.XlYesNoGuess.xlNo\r\n\t    \tif dr == DialogResult.OK:\r\n\t    \t\tworkbk = ex.Workbooks.Add()\r\n\t    \t\tworksheet = workbk.Worksheets.Add()\r\n\t    \t\t#Writing title and doc info\r\n\t    \t\tif sender.Tag[2]:\r\n\t\t    \t\ttitleCell = worksheet.Cells[1,1]\r\n\t\t    \t\tworksheet.Cells[2,1].Value2 = sender.Tag[3]\r\n\t\t    \t\ttitleCell.Value2 = titletext\r\n\t\t    \t\ttitleCell.Font.Size = 18\r\n\t\t    \t\ttitleCell.Font.Bold = True\r\n\t\t    \t\tstartR = 3\r\n\t\t    \t\tendR = 3\r\n\t\t    \telse:\r\n\t\t    \t\tstartR = 1\r\n\t\t    \t\tendR = 0\t\r\n\t\t    \tif frstRwTtle:\r\n\t\t    \t\tfor j in range(0,dataTable.Columns.Count):\r\n\t\t    \t\t\tworksheet.Cells[startR,j+1] = dataTable.Columns[j].ColumnName\t\t    \t\r\n\t\t    \t\tfor i in range(0,dataTable.Rows.Count):\r\n\t\t    \t\t\tfor j in range(0,dataTable.Columns.Count):\r\n\t\t\t    \t\t\tworksheet.Cells[i+startR+1,j+1] = dataTable.DefaultView[i].Row[j].ToString()\r\n\t\t    \t\txlrange = ex.get_Range(worksheet.Cells[startR,1],worksheet.Cells[dataTable.Rows.Count+endR+1,dataTable.Columns.Count])\t\t\t    \t\t\t\r\n\t\t    \telse :\r\n\t\t    \t\tfor i in range(0,dataTable.Rows.Count):\r\n\t\t    \t\t\tfor j in range(0,dataTable.Columns.Count):\r\n\t\t\t    \t\t\tworksheet.Cells[i+startR,j+1] = dataTable.DefaultView[i].Row[j].ToString()\t\t    \t\r\n\t\t    \t\txlrange = ex.get_Range(worksheet.Cells[startR,1],worksheet.Cells[dataTable.Rows.Count+endR,dataTable.Columns.Count])\r\n\t\t    \txlrange.Columns.AutoFit()\r\n\t\t    \tworksheet.ListObjects.Add(Excel.XlListObjectSourceType.xlSrcRange, xlrange, SType.Missing, _header, SType.Missing).Name = \"DataShapesTable\"\r\n\t\t    \tworksheet.ListObjects[\"DataShapesTable\"].TableStyle =  \"TableStyleMedium16\"\r\n\t    \t\tworkbk.SaveAs(fbd.SelectedPath + \"\\\\\" + fptext)\r\n\t    \t\tif not sender.Tag[1]:\r\n\t    \t\t\tworkbk.Close()\r\n\t    \t\t\tex.Quit()\r\n\r\n\t    def startCell(self, sender, event ):\r\n\t\t\tsender.startcell[\"X\"] = event.ColumnIndex\r\n\t\t\tsender.startcell[\"Y\"] = event.RowIndex\t\r\n\r\n\t    def endCell(self, sender, event ):\r\n\t    \ttry:\r\n\t\t\t\tsender.endcell[\"X\"] = event.ColumnIndex\r\n\t\t\t\tsender.endcell[\"Y\"] = event.RowIndex \r\n\t\t\t\tstartval = sender.Rows[sender.startcell[\"Y\"]].Cells[sender.startcell[\"X\"]].Value\r\n\t\t\t\tendNum = regexEndNum(startval)\r\n\t\t\t\tif endNum != \"\":\r\n\t\t\t\t\tif sender.endcell[\"Y\"] == sender.startcell[\"Y\"]:\r\n\t\t\t\t\t\tfor e,i in enumerate(range(sender.startcell[\"X\"],sender.endcell[\"X\"] + 1)):\r\n\t\t\t\t\t\t\tsender.Rows[sender.startcell[\"Y\"]].Cells[i].Value = startval[:-len(endNum)] + str(int(endNum) + e)\r\n\t\t\t\t\telif sender.endcell[\"X\"] == sender.startcell[\"X\"]:\r\n\t\t\t\t\t\tfor e,i in enumerate(range(sender.startcell[\"Y\"],sender.endcell[\"Y\"] + 1)):\r\n\t\t\t\t\t\t\tsender.Rows[i].Cells[sender.endcell[\"X\"]].Value = startval[:-len(endNum)] + str(int(endNum) + e)\r\n\t\t\t\telse:\t\t\t\t\r\n\t\t\t\t\tif sender.endcell[\"Y\"] == sender.startcell[\"Y\"]:\r\n\t\t\t\t\t\tfor i in range(sender.startcell[\"X\"],sender.endcell[\"X\"] + 1):\r\n\t\t\t\t\t\t\tsender.Rows[sender.startcell[\"Y\"]].Cells[i].Value = startval\r\n\t\t\t\t\telif sender.endcell[\"X\"] == sender.startcell[\"X\"]:\r\n\t\t\t\t\t\tfor i in range(sender.startcell[\"Y\"],sender.endcell[\"Y\"] + 1):\r\n\t\t\t\t\t\t\tsender.Rows[i].Cells[sender.endcell[\"X\"]].Value = startval\r\n\t    \texcept:\r\n\t    \t\tpass\r\n\t    \t\t    \t\r\n\t    def startRowDrag(self, sender, event ):\r\n\t    \tshmak\r\n\t\t\t\r\n\t    def opendirectory(self, sender, event):\r\n\t\t\tfbd = FolderBrowserDialog()\r\n\t\t\tfbd.SelectedPath = sender.Text\r\n\t\t\tdr = fbd.ShowDialog()\r\n\t\t\tif dr == DialogResult.OK:\r\n\t\t\t\tsender.Text = fbd.SelectedPath\r\n\t\t\t\tsender.Tag = fbd.SelectedPath\r\n\t\r\n\t    def pickobjects(self, sender, event):\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = False\r\n\t\t\ttry:\r\n\t\t\t\tsel = uidoc.Selection.PickObjects(Selection.ObjectType.Element,'')\r\n\t\t\t\tselelem = [doc.GetElement(s.ElementId) for s in sel]\r\n\t\t\t\tsender.Tag = (selelem)\r\n\t\t\texcept:\r\n\t\t\t\tpass\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = True\r\n\t    def pickobjectsordered(self, sender, event):\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = False\r\n\t\t\toutput = []\r\n\t\t\ttest = True\r\n\t\t\tTaskDialog.Show(\"Data|Shapes\", 'Pick elements in order, then hit ESC to exit.')\r\n\t\t\twhile test:\r\n\t\t\t\ttry:\r\n\t\t\t\t\tsel = doc.GetElement(uidoc.Selection.PickObject(Selection.ObjectType.Element, 'Pick elements in order').ElementId)\r\n\t\t\t\t\toutput.append(sel.ToDSType(True))\r\n\t\t\t\texcept : \r\n\t\t\t\t\ttest = False\r\n\t\t\t\tsender.Tag = output\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = True\r\n\t    \r\n\t    def pickobjectsofcatordered(self, sender, event):\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = False\r\n\t\t\toutput = []\r\n\t\t\ttest = True\r\n\t\t\tif isinstance(sender.Tag,list):\t\t\t\r\n\t\t\t\tcategory = UnwrapElement(sender.Tag)\r\n\t\t\telse:\r\n\t\t\t\tcategory = [UnwrapElement(sender.Tag)]\r\n\t\t\tTaskDialog.Show(\"Data|Shapes\", 'Select %s in order, then press ESC to exit.' %(', '.join([c.Name for c in category])))\r\n\t\t\twhile test:\r\n\t\t\t\ttry:\r\n\t\t\t\t\tselfilt = selectionfilter(category)\r\n\t\t\t\t\tsel = doc.GetElement(uidoc.Selection.PickObject(Selection.ObjectType.Element,selfilt, 'Select %s' %(', '.join([c.Name for c in category]))).ElementId)\t\t\t\t\r\n\t\t\t\t\toutput.append(sel.ToDSType(True))\r\n\t\t\t\texcept : \r\n\t\t\t\t\ttest = False\r\n\t\t\t\tsender.Tag = (output)\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = True\r\n\t\t\t\r\n\t    def picklinkedobjects(self, sender, event):\r\n\t\t\t#This part was made easier by Dimitar Venkov's work\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = False\r\n\t\t\ttry:\r\n\t\t\t\tlinkref = uidoc.Selection.PickObject(Selection.ObjectType.Element,'Select the link instance.')\r\n\t\t\t\tlink = doc.GetElement(linkref.ElementId).GetLinkDocument()\r\n\t\t\t\ttd = TaskDialog.Show('Data-Shapes','Select the linked elements and press Finish.')\r\n\t\t\t\tsel = uidoc.Selection.PickObjects(Selection.ObjectType.LinkedElement,'Select the linked elements and press Finish.')\r\n\t\t\t\tselelem = [link.GetElement(s.LinkedElementId) for s in sel]\r\n\t\t\t\tsender.Tag = (selelem)\r\n\t\t\texcept:\r\n\t\t\t\tpass\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = True\t\t\r\n\r\n\t    def pickobject(self, sender, event):\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = False\r\n\t\t\ttry:\r\n\t\t\t\tsel = uidoc.Selection.PickObject(Selection.ObjectType.Element,'')\r\n\t\t\t\tselelem = doc.GetElement(sel.ElementId) \r\n\t\t\t\tsender.Tag = (selelem)\r\n\t\t\texcept:\r\n\t\t\t\tpass\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = True\r\n\t\t\t\r\n\t    def picklinkedobject(self, sender, event):\r\n\t\t\t#This part was made easier by Dimitar Venkov's work\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = False\r\n\t\t\ttry:\r\n\t\t\t\tlinkref = uidoc.Selection.PickObject(Selection.ObjectType.Element,'Select the link instance.')\r\n\t\t\t\tlink = doc.GetElement(linkref.ElementId).GetLinkDocument()\r\n\t\t\t\ttd = TaskDialog.Show('Data-Shapes','Select the linked element.')\r\n\t\t\t\tsel = uidoc.Selection.PickObject(Selection.ObjectType.LinkedElement,'Select the linked element.')\r\n\t\t\t\tselelem = link.GetElement(sel.LinkedElementId)\r\n\t\t\t\tsender.Tag = (selelem)\r\n\t\t\texcept:\r\n\t\t\t\tpass\t\t\t\t\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = True\r\n\t\t\t\r\n\t    def pickobjectsofcat(self, sender, event):\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = False\r\n\t\t\tif isinstance(sender.Tag,list):\t    \r\n\t\t\t\tcategory = UnwrapElement(sender.Tag)\r\n\t\t\telse:\r\n\t\t\t\tcategory = [UnwrapElement(sender.Tag)]\r\n\t\t\ttry:\r\n\t\t\t\tselfilt = selectionfilter(category)\r\n\t\t\t\tsel = uidoc.Selection.PickObjects(Selection.ObjectType.Element,selfilt,'Select %s' %(', '.join([c.Name for c in category])))\r\n\t\t\t\tselelem = [doc.GetElement(s.ElementId) for s in sel]\r\n\t\t\t\tsender.Tag = (selelem)\r\n\t\t\texcept:\r\n\t\t\t\tpass\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = True\r\n\r\n\t    def pickobjectofcat(self, sender, event):\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = False\r\n\t\t\tif isinstance(sender.Tag,list):\t    \r\n\t\t\t\tcategory = UnwrapElement(sender.Tag)\r\n\t\t\telse:\r\n\t\t\t\tcategory = [UnwrapElement(sender.Tag)]\r\n\t\t\ttry:\r\n\t\t\t\tselfilt = selectionfilter(category)\r\n\t\t\t\tsel = uidoc.Selection.PickObject(Selection.ObjectType.Element,selfilt,'Select %s' %(', '.join([c.Name for c in category])))\r\n\t\t\t\tselelem = doc.GetElement(sel.ElementId) \r\n\t\t\t\tsender.Tag = (selelem)\r\n\t\t\texcept:\r\n\t\t\t\tpass\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = True\r\n\t\t\t\r\n\t    def pickfaces(self, sender, event):\r\n\t\t\tfaces = []\t    \t\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = False\r\n\t\t\ttry:\r\n\t\t\t\tselface = uidoc.Selection.PickObjects(Selection.ObjectType.Face,'')\r\n\t\t\t\tfor s in selface:\r\n\t\t\t\t\tf = uidoc.Document.GetElement(s).GetGeometryObjectFromReference(s).ToProtoType(True)\r\n\t\t\t\t\t[i.Tags.AddTag(\"RevitFaceReference\", s) for i in f]\r\n\t\t\t\t\tfaces.append(f)\r\n\t\t\t\tsender.Tag = [i for j in faces for i in j]\r\n\t\t\texcept:\r\n\t\t\t\tpass\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = True\r\n\t\t\t\t\r\n\t    def pickpointsonface(self, sender, event):\r\n\t\t\tfaces = []\t    \t\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = False\r\n\t\t\tselpoints = uidoc.Selection.PickObjects(Selection.ObjectType.PointOnElement,'')\r\n\t\t\tpoints = []\r\n\t\t\tfor s in selpoints:\r\n\t\t\t\tpt = s.GlobalPoint\r\n\t\t\t\tpoints.append(dsPoint.ByCoordinates(UnitUtils.ConvertFromInternalUnits(pt.X,UIunit),UnitUtils.ConvertFromInternalUnits(pt.Y,UIunit),UnitUtils.ConvertFromInternalUnits(pt.Z,UIunit)))\r\n\t\t\tsender.Tag = points\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = True\r\n\t\t\t\t\r\n\t    def pickedges(self, sender, event):\r\n\t\t\tedges = []\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = False\t\r\n\t\t\ttry:\t\t\t\t\r\n\t\t\t\tseledge = uidoc.Selection.PickObjects(Selection.ObjectType.Edge,'')\r\n\t\t\t\tfor s in seledge:\r\n\t\t\t\t\te = uidoc.Document.GetElement(s).GetGeometryObjectFromReference(s).AsCurve().ToProtoType(True)\r\n\t\t\t\t\te.Tags.AddTag(\"RevitFaceReference\", s)\r\n\t\t\t\t\tedges.append(e)\r\n\t\t\t\tsender.Tag = edges\r\n\t\t\texcept:\r\n\t\t\t\tpass\r\n\t\t\tfor c in self.Controls:\r\n\t\t\t\tc.Enabled = True\r\n\r\n\t    def colorpicker(self, sender, event):\r\n\t\t\tdialog = ColorSelectionDialog()\r\n\t\t\tselection = ColorSelectionDialog.Show(dialog)\r\n\t\t\tselected = dialog.SelectedColor\r\n\t\t\tsender.Tag = selected\r\n\t\t\tsender.BackColor = Color.FromArgb(selected.Red,selected.Green,selected.Blue)\r\n\t\t\tsender.ForeColor = Color.FromArgb(selected.Red,selected.Green,selected.Blue)\r\n\t\r\n\t    def topmost(self):\r\n\t\t\tself.TopMost = True\r\n\t\r\n\t    def lvadd(self, sender, event):\r\n\t\t\tsender.Tag = [i for i in sender.CheckedItems]\r\n\t\t\t\r\n\t    def scroll(self, sender, event):\r\n\t\t\tparent = sender.Parent\r\n\t\t\tchild = parent.GetChildAtPoint(Point(0,5*yRatio))\r\n\t\t\tchild.Text = str(sender.startval+sender.Value*sender.step)\r\n\r\n\t    def openurl(self, sender, event):\r\n\t\t\twebbrowser.open(sender.Tag)\r\n\t\r\n\t    def selectall(self, sender, event):\r\n\t\t\tif sender.Checked:\r\n\t\t\t\tparent = sender.Parent\r\n\t\t\t\tlistview = parent.GetChildAtPoint(Point(0,0))\r\n\t\t\t\tfor i in listview.Items:\r\n\t\t\t\t\ti.Checked = True\r\n\t\t\telse:\r\n\t\t\t\tpass\r\n\t\t\t\t\r\n\t    def selectnone(self, sender, event):\r\n\t\t\tif sender.Checked:\r\n\t\t\t\tparent = sender.Parent\r\n\t\t\t\tlistview = parent.GetChildAtPoint(Point(0,0))\r\n\t\t\t\tfor i in listview.Items:\r\n\t\t\t\t\ti.Checked = False\r\n\t\t\telse:\r\n\t\t\t\tpass\t\t\r\n\r\n\t    def updateallnone(self, sender, event):\r\n\t    \ttry:\r\n\t    \t\tparent = sender.Parent\r\n\t    \t\trball = parent.GetChildAtPoint(Point(0,sender.Height + 5*yRatio))\r\n\t    \t\trbnone = parent.GetChildAtPoint(Point(80 * xRatio,sender.Height + 5*yRatio))\r\n\t    \t\tif sender.CheckedItems.Count == 0 and event.NewValue == CheckState.Unchecked:\r\n\t    \t\t\trbnone.Checked = False\r\n\t    \t\t\trball.Checked = False\r\n\t    \t\telif sender.CheckedItems.Count == sender.Items.Count and event.NewValue == CheckState.Unchecked:\r\n\t    \t\t\trball.Checked = False\r\n\t    \t\t\trbnone.Checked = False\r\n\t    \t\telif sender.CheckedItems.Count == sender.Items.Count-1 and event.NewValue == CheckState.Checked:\r\n\t    \t\t\trball.Checked = True\r\n\t    \t\t\trbnone.Checked = False\r\n\t    \t\telif sender.CheckedItems.Count == 1 and event.NewValue == CheckState.Unchecked:\r\n\t    \t\t\trball.Checked = False\r\n\t    \t\t\trbnone.Checked = True\t    \t\r\n\t    \t\telse :\r\n\t    \t\t\trball.Checked = False\r\n\t    \t\t\trbnone.Checked = False\r\n\t    \texcept:\r\n\t    \t\tpass\r\n\r\n\t    def zoomcenter(self, sender, event ):\r\n\t\t\tif event.X > 15:\t    \r\n\t\t\t\ttry:\r\n\t\t\t\t\telement = doc.GetElement(uidoc.Selection.GetElementIds()[0])\r\n\t\t\t\t\tuidoc.ShowElements(element)\r\n\t\t\t\texcept:\r\n\t\t\t\t\tpass\r\n\t\t\telse:\r\n\t\t\t\tpass\r\n\t\t\t\t\r\n\t\t\t\r\n\t    def setviewforelement(self, sender, event ):    \r\n\t\t\tif event.X > 15*xRatio:\t    \t\t\r\n\t\t\t\ttry:\r\n\t\t\t\t\titem = sender.GetItemAt(event.X,event.Y).Text\r\n\t\t\t\t\telement = UnwrapElement(sender.Values[item])\r\n\t\t\t\t\ttry:\r\n\t\t\t\t\t\tviewsforelement = [v for v in dbviews if (not v.IsTemplate) and (element.Id in [e.Id for e in FilteredElementCollector(doc,v.Id).OfClass(element.__class__).ToElements()])]\r\n\t\t\t\t\texcept:\r\n\t\t\t\t\t\tviewsforelement = [v for v in dbviews if (not v.IsTemplate) and (element.Id in [e.Id for e in FilteredElementCollector(doc,v.Id).OfClass(FamilyInstance).ToElements()])]\r\n\t\t\t\t\tglobal viewindex\r\n\t\t\t\t\tdbView = viewsforelement[viewindex]\r\n\t\t\t\t\tid = [element.Id]\r\n\t\t\t\t\ticollection = iList[ElementId](id)\r\n\t\t\t\t\tuidoc.Selection.SetElementIds(icollection)\r\n\t\t\t\texcept:\r\n\t\t\t\t\tpass\r\n\t\t\telse:\t    \r\n\t\t\t\tpass\r\n\r\n\r\n\t    def CheckChildren(self, sender, event ):\r\n\t\t\tevNode = event.Node\t    \r\n\t\t\tcheckState = evNode.Checked\t\r\n\t\t\tfor n in event.Node.Nodes:\t   \t\r\n\t\t\t\tn.Checked = checkState\t\t\t\r\n\t\t\t\t\r\n\t    def ActivateOption(self, sender, event ):\r\n\t    \tparent = sender.Parent\r\n\t    \tassociatedControls = [p for p in parent.Controls if p.Name == sender.Text and p.GetType() == Panel][0]\r\n\t    \trestofcontrols = [p for p in parent.Controls if p.Name != sender.Text and p.GetType() == Panel]\r\n\t    \tif sender.Checked:\r\n\t    \t\tassociatedControls.Enabled = True\r\n\t    \t\tfor c in restofcontrols:\r\n\t    \t\t\tc.Enabled = False\r\n\t    \t\tparent.Tag = sender.Text\r\n\t    \t\t\r\n\t    def showtooltip(self, sender, event ):\r\n\t    \tttp = ToolTip()\r\n\t    \tttp.AutoPopDelay = 10000\r\n\t    \tttp.SetToolTip(sender , sender.Tag)\t\r\n\r\n\t    def numsOnly(self, sender, event ):\r\n\t    \tif Char.IsDigit(event.KeyChar)==False and event.KeyChar != \".\" and Char.IsControl(event.KeyChar)==False:\r\n\t    \t\tevent.Handled = True\t\t\t\t\r\n\t\t\t\r\n\r\n\tclass mylistview(ListView):\r\n\t\r\n\t\tdef __init__(self):\r\n\t\t\tself.Values = []\r\n\r\n\tclass mytrackbar(TrackBar):\r\n\t\r\n\t\tdef __init__(self,startval,step):\r\n\t\t\tself.startval = startval\r\n\t\t\tself.step = step\r\n\r\n\tclass myDataGridView(DataGridView):\r\n\t\r\n\t\tdef __init__(self):\r\n\t\t\tself.startcell = {}\r\n\t\t\tself.endcell = {}\r\n\t\t\t\r\n\tclass mygroupbox(GroupBox):\r\n\t\r\n\t\tdef __init__(self):\r\n\t\t\tself.Values = []\r\n\t\t\t\r\n\tclass myTextBox(TextBox):\r\n\t\r\n\t\tdef __init__(self):\r\n\t\t\tself._isNum = False\t\r\n\t\t\t\r\n\t#Form initialization\r\n\t\r\n\tform = MultiTextBoxForm()\r\n\txRatio = Screen.PrimaryScreen.Bounds.Width/1920\r\n\tif xRatio == 0:\r\n\t\txRatio = 1\r\n\tyRatio = Screen.PrimaryScreen.Bounds.Height/1080\r\n\tif yRatio == 0:\r\n\t\tyRatio = 1\r\n\tform.topmost()\t\r\n\tform.ControlBox = True\r\n\txlabel = 25 * xRatio\r\n\txinput = 150 * xRatio\r\n\tformy = 10 * yRatio\r\n\tif IN[8] * xRatio > (350 * xRatio):\tformwidth = IN[8] * xRatio\r\n\telse: formwidth = 350 * xRatio\r\n\tfields = []\r\n\terror = 0\r\n\t\r\n\t#Description \r\n\t\r\n\tif IN[3] != \"\":\r\n\t\tdes = Label()\r\n\t\tdes.Location = Point(xlabel,formy)\r\n\t\tdes.Font = Font(\"Arial\", 15,FontStyle.Bold)\t\t\r\n\t\tdes.AutoSize = True\r\n\t\tdes.MaximumSize = Size(formwidth - (2 * xlabel)*xRatio,0)\r\n\t\tdes.Text = IN[3]\r\n\t\tform.Controls.Add(des)\r\n\t\tformy = des.Bottom + (15*xRatio)\r\n\tformheaderheight = formy\r\n\t\r\n\t#Input form\r\n\t\r\n\t# Create a container panel for all inputs\r\n\tbody = Panel()\r\n\tbody.Location = Point(0,formy)\r\n\tbody.Width = formwidth - 15*xRatio\r\n\t\r\n\t\r\n\t# Process form inputs\r\n\tif isinstance(IN[0],list):\r\n\t\tinputtypes = IN[0]\r\n\telse:\r\n\t\tinputtypes = [IN[0]]\r\n\t# This definition is to handle the sorting of special characters\r\n\tdef remove_accents(input_str):\r\n\t    nfkd_form = unicodedata.normalize('NFKD', input_str)\r\n\t    only_ascii = nfkd_form.encode('ASCII', 'ignore')\r\n\t    return only_ascii\t\r\n\r\n\t#Adding Logo \r\n\t#default logo in case no input\t\r\n\tdef getImageByName(ImName):\r\n\t\tdynamo = Assembly.Load('DynamoCore')\r\n\t\tversion = str(dynamo.GetName().Version)[:3]\t\t\r\n\t\tdynPath = os.getenv('APPDATA')+\"\\\\Dynamo\\Dynamo Revit\\\\\" + version \r\n\t\troot = et.parse(dynPath + \"\\DynamoSettings.xml\").getroot()\r\n\t\tlogopaths = []\r\n\t\tfor child in root:\r\n\t\t\tif child.tag == \"CustomPackageFolders\":\r\n\t\t\t\tfor path in child:\r\n\t\t\t\t\tlogopaths.append(path.text + \"\\packages\\\\\" + ImName)\r\n\t\t\t\t\tlogopaths.append(path.text + \"\\\\\" + ImName)\r\n\t\tdeflogopath = \"\"\r\n\t\tfor path in logopaths:\r\n\t\t\tif deflogopath == \"\":\r\n\t\t\t\tif os.path.isfile(path):\r\n\t\t\t\t\tdeflogopath = path\r\n\t\t\t\t\ttry:\r\n\t\t\t\t\t\tima = Image.FromFile(deflogopath)\r\n\t\t\t\t\t\tbmp = Bitmap.FromFile(deflogopath)\r\n\t\t\t\t\t\treturn ima,bmp\r\n\t\t\t\t\texcept: \r\n\t\t\t\t\t\tpass\r\n\t\t\t\t\t\t\r\n\ttry:\r\n\t\tif IN[4] != '':\r\n\t\t\ttry:\r\n\t\t\t\tima = Image.FromFile(IN[4])\r\n\t\t\t\tbmp = Bitmap.FromFile(IN[4])\r\n\t\t\texcept:\r\n\t\t\t\tima = IN[4]\r\n\t\t\t\tbmp = IN[4]\r\n\r\n\t\telse :\r\n\t\t\t_ims = getImageByName(\"logo.png\")\r\n\t\t\tima = _ims[0]\r\n\t\t\tbmp = _ims[1]\r\n\t\t\t\r\n\t\tlogo = Panel()\r\n\t\tif IN[6] == None:\r\n\t\t\txlogo = 20 * xRatio\r\n\t\t\tylogo = formy+ 10*yRatio\r\n\t\telse:\r\n\t\t\txlogo = 30 * xRatio\r\n\t\t\tylogo = formy\r\n\t\tsize = 110 * xRatio\r\n\t\tlogo = PictureBox()\r\n\t\tratio = (ima.Height)/(ima.Width)\r\n\t\th = float(ima.Height)\r\n\t\tw = float(ima.Width)\r\n\t\tratio = h/w\r\n\t\tlogo.Size = Size(size,size*ratio)\r\n\t\tscaledimage = Bitmap(size,size*ratio)\r\n\t\tgr = Graphics.FromImage(scaledimage)\r\n\t\tgr.DrawImage(ima,0,0,size,size*ratio)\r\n\t\tlogo.Image = ima\r\n\t\tlogo.SizeMode = PictureBoxSizeMode.Zoom\r\n\t\tform.Controls.Add(logo)\r\n\t\tlogo.Location = Point(xlogo,ylogo)\r\n\t\t\r\n\t\t\r\n\t\t#Setting icon \r\n\t\tthumb = bmp.GetThumbnailImage(64, 64, bmp.GetThumbnailImageAbort,IntPtr.Zero)\r\n\t\tthumb.MakeTransparent();\r\n\t\ticon = Icon.FromHandle(thumb.GetHicon())\r\n\t\tform.Icon = icon\r\n\r\n\texcept :\r\n\t\tlogo = Panel()\r\n\t\tlogo.Width = 110 * xRatio\r\n\t\tlogo.Height = 110 * yRatio\r\n\t\r\n\tdef addinput(formbody,inputs,starty,xinput,rightmargin,labelsize,importcolorselection):\r\n\t\ty = starty\r\n\t\tfor j in inputs:\r\n\t\t\tlabel = Label()\r\n\t\t\tlabel.Location = Point(xlabel,y+4*yRatio)\r\n\t\t\tlabel.AutoSize = True\r\n\t\t\tlabel.MaximumSize = Size(labelsize,0)\r\n\t\t\tif j.__class__.__name__ == 'listview' and j.element_count > 0:\r\n\t\t\t\tlabel.Text = j.inputname + '\\n(' + str(j.element_count) + ' element' + (\"s\" if j.element_count > 1 else \"\") + ')'\r\n\t\t\telse:\r\n\t\t\t\ttry:\r\n\t\t\t\t\tlabel.Text = j.inputname\r\n\t\t\t\texcept:\r\n\t\t\t\t\tpass\r\n\t\t\tformbody.Controls.Add(label)\r\n\t\r\n\t\t\tif j.__class__.__name__ == 'dropdown':\r\n\t\t\t\tcb = ComboBox()\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\tcb.Width = formwidth - rightmargin - xinput\r\n\t\t\t\t\tcb.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\tcb.Width = formwidth - rightmargin - xlabel\r\n\t\t\t\t\tcb.Location = Point(xlabel,y)\r\n\t\t\t\tcb.Sorted = j._sorted\r\n\t\t\t\t[cb.Items.Add(i) for i in j.keys() if not (i == 'inputname' or i == 'height' or i == 'defaultvalue' or i == 'highlight' or i == '_sorted' )]\r\n\t\t\t\tcb.Tag = j\r\n\t\t\t\tif j.defaultvalue != None:\r\n\t\t\t\t\tdefindex = [i for i in cb.Items].index([i for i in j.keys() if not (i == 'inputname' or i == 'height' or i == 'defaultvalue' or i == 'highlight' or i == '_sorted' )][j.defaultvalue])\r\n\t\t\t\t\tcb.SelectedIndex = defindex\r\n\t\t\t\tformbody.Controls.Add(cb)\r\n\t\t\t\tform.output.append(cb)\r\n\t\t\t\ty = label.Bottom + 25 * yRatio\r\n\t\t\t#CHARTS is a work in progress\r\n\t\t\t'''\r\n\t\t\tif j.__class__.__name__ == 'uichart':\r\n\t\t\t\tch = Chart()\r\n\t\t\t\tch.Width = formwidth - rightmargin - xlabel\r\n\t\t\t\tch.Location = Point(xlabel,y)\r\n\t\t\t\tch.Height = 600 * yRatio\r\n\t\t\t\tch.Series.Add(\"test\")\r\n\t\t\t\tch.Series[\"test\"].XValueMember = \"Date\"\r\n\t\t\t\tch.Series[\"test\"].YValueMembers = \"Percent\"\r\n\t\t\t\tch.Series[0].ChartType = SeriesChartType.ChartType.Bar\r\n\t\t\t\tdt = DataTable()\r\n\t\t\t\tdl = j.datalist\r\n\t\t\t\tfor rindex in range(rngstart,len(dl)):\r\n\t\t\t\t\trow = dt.NewRow()\r\n\t\t\t\t\tfor i in range(len(dl[rindex])):\r\n\t\t\t\t\t\trow[i] = dl[rindex][i]\r\n\t\t\t\t\tdt.Rows.Add(row)\r\n\t\t\t\tch.DataSource = table\r\n\t\t\t\tch.DataBind()\r\n\t\t\t\tformbody.Controls.Add(ch)\r\n\t\t\t\ty = ch.Bottom + 25 * yRatio\r\n\t\t\t'''\r\n\t\t\tif j.__class__.__name__ == 'uitreeview':\r\n\t\t\t\ttv = TreeView()\r\n\t\t\t\ttv.CheckBoxes = True\r\n\t\t\t\ttitles = j._hastitles\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\ttv.Width = formwidth - rightmargin - xinput\r\n\t\t\t\t\ttv.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\ttv.Width = formwidth - rightmargin - xlabel\r\n\t\t\t\t\ttv.Location = Point(xlabel,y)\r\n\t\t\t\ttv.Height = j._height\r\n\t\t\t\tdef treeIterationTitle(control, input):\r\n\t\t\t\t\tif isinstance(input,list):\r\n\t\t\t\t\t\ttry:\r\n\t\t\t\t\t\t\tcurrentNode = TreeNode(remove_accents(input[0].ToString()))\r\n\t\t\t\t\t\t\tcurrentNode.Tag = \"\"\r\n\t\t\t\t\t\t\tinput.pop(0)\r\n\t\t\t\t\t\texcept:\r\n\t\t\t\t\t\t\tcurrentNode = TreeNode(control.Text +\".\"+ str(len(control.Nodes)+1))\r\n\t\t\t\t\t\t\tcurrentNode.Tag = \"\"\r\n\t\t\t\t\t\tcontrol.Nodes.Add(currentNode)\r\n\t\t\t\t\t\tfor i in input:\r\n\t\t\t\t\t\t\ttreeIterationTitle(currentNode, i)\r\n\t\t\t\t\telse:\r\n\t\t\t\t\t\titem = TreeNode(remove_accents(input.ToString()))\r\n\t\t\t\t\t\titem.Tag = input\r\n\t\t\t\t\t\tcontrol.Nodes.Add(item)\t\r\n\t\t\t\tdef treeIteration(control, input):\r\n\t\t\t\t\tif isinstance(input,list):\r\n\t\t\t\t\t\tcurrentNode = TreeNode(control.Text +\".\"+ str(len(control.Nodes)+1))\r\n\t\t\t\t\t\tcurrentNode.Tag = input\r\n\t\t\t\t\t\tcontrol.Nodes.Add(currentNode)\r\n\t\t\t\t\t\tfor i in input:\r\n\t\t\t\t\t\t\ttreeIteration(currentNode, i)\r\n\t\t\t\t\telse:\r\n\t\t\t\t\t\titem = TreeNode(remove_accents(input.ToString()))\r\n\t\t\t\t\t\titem.Tag = input\r\n\t\t\t\t\t\tcontrol.Nodes.Add(item)\r\n\t\t\t\tcurrentNode = TreeNode(\"List1\")\r\n\t\t\t\tcurrentNode.Expand()\t\t\t\t\r\n\t\t\t\tif titles:\r\n\t\t\t\t\ttv.Nodes.Add(currentNode)\t\t\t\t\t\t\t\t\r\n\t\t\t\t\tfor dl in j.datalist:\r\n\t\t\t\t\t\ttreeIterationTitle(currentNode,dl)\t\r\n\t\t\t\telse:\r\n\t\t\t\t\ttv.Nodes.Add(currentNode)\t\t\t\t\t\t\t\t\r\n\t\t\t\t\tfor dl in j.datalist:\r\n\t\t\t\t\t\ttreeIteration(currentNode,dl)\r\n\t\t\t\ttv.AfterCheck += form.CheckChildren\t\t\t\t\t\t\r\n\t\t\t\tformbody.Controls.Add(tv)\r\n\t\t\t\tform.output.append(tv)\r\n\t\t\t\ty = tv.Bottom + 25 * yRatio\r\n\t\t\telif j.__class__.__name__ == 'listview':\r\n\t\t\t\tlvp = Panel()\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\tlvp.Location = Point(xinput,y)\r\n\t\t\t\t\tlvp.Width = formwidth - rightmargin - xinput\t\t\t\t\r\n\t\t\t\telif j.inputname == \"\" and j.element_count != 0:\r\n\t\t\t\t\tlvp.Location = Point(xlabel,y+35*yRatio)\r\n\t\t\t\t\tlvp.Width = formwidth - rightmargin - xlabel\r\n\t\t\t\telse : \r\n\t\t\t\t\tlvp.Location = Point(xlabel,y)\r\n\t\t\t\t\tlvp.Width = formwidth - rightmargin - xlabel\t\t\t\t\r\n\t\t\t\tlvp.Height = j.height * yRatio + 25 * yRatio\r\n\t\t\t\t#Creating the listview box\r\n\t\t\t\tlv = mylistview()\r\n\t\t\t\tlv.Scrollable = True\r\n\t\t\t\tdummyheader = ColumnHeader()\r\n\t\t\t\tdummyheader.Text = \"\"\r\n\t\t\t\tdummyheader.Name = \"\"\r\n\t\t\t\tdummyheader.Width = -2 * xRatio\r\n\t\t\t\tlv.HeaderStyle = ColumnHeaderStyle.None\r\n\t\t\t\tlv.Columns.Add(dummyheader)\r\n\t\t\t\tlv.Values = j\r\n\t\t\t\tif not j.display_mode:\r\n\t\t\t\t\tlv.CheckBoxes = True\r\n\t\t\t\tlv.View = vi.Details\r\n\t\t\t\tlvItems =  [i for i in j.keys() if not (i == 'inputname' or i == 'height' or i == 'highlight' or i == 'display_mode' or i == 'element_count' or i == 'default_values' or i == 'sorted' or i == 'showId')]\r\n\t\t\t\tif j.sorted :\r\n\t\t\t\t\tlvItems = sorted(lvItems,key = remove_accents)\r\n\t\t\t\telse:\r\n\t\t\t\t\tpass\r\n\t\t\t\t[lv.Items.Add(i) for i in lvItems]\r\n\t\t\t\tlv.Location = Point(0,0)\r\n\t\t\t\tif j.inputname != \"\" and j.element_count != 0:\r\n\t\t\t\t\tlv.Width = formwidth - rightmargin - xinput\r\n\t\t\t\telif j.inputname != \"\" and j.element_count == 0:\r\n\t\t\t\t\tlv.Width = formwidth - rightmargin - xinput\r\n\t\t\t\telse:\r\n\t\t\t\t\tlv.Width = formwidth - rightmargin - xlabel\r\n\t\t\t\tlv.Height = j.height * yRatio\r\n\t\t\t\tlv.Scrollable = True\r\n\t\t\t\tlv.ItemCheck += form.updateallnone\r\n\t\t\t\tfor i in j.default_values:\r\n\t\t\t\t\tdefInd = lvItems.index([x for x in j.keys() if not (x == 'inputname' or x == 'height' or x == 'highlight' or x == 'display_mode' or x == 'element_count' or x == 'default_values' or x == 'sorted' or x == 'showId')][i])\r\n\t\t\t\t\tlv.Items[defInd].Checked = True\r\n\t\t\t\t#Click listview items to hilight and center in appropriate view\r\n\t\t\t\tif j.highlight :\r\n\t\t\t\t\tlv.MouseDown += form.setviewforelement\r\n\t\t\t\t\tlv.MouseUp += form.zoomcenter\r\n\t\t\t\t\titems = list(lv.Items)\r\n\t\t\t\t\tlv.FullRowSelect = True\r\n\t\t\t\t\tdel items[::2]\r\n\t\t\t\t\tfor item in items:\r\n\t\t\t\t\t\titem.BackColor = Color.FromArgb(230,243,255)\r\n\t\t\t\t#Creating select all and select none radiobuttons\r\n\t\t\t\tif not j.display_mode:\r\n\t\t\t\t\trball = RadioButton()\r\n\t\t\t\t\trball.Location = Point(0,(j.height+5)*yRatio)\r\n\t\t\t\t\trball.Width = 100 * xRatio\r\n\t\t\t\t\trball.Height = 20 * yRatio\r\n\t\t\t\t\trball.Font = SystemFonts.DefaultFont\r\n\t\t\t\t\trball.Text = \"Select all\"\r\n\t\t\t\t\trball.Click += form.selectall\r\n\t\t\t\t\trbnone = RadioButton()\r\n\t\t\t\t\trbnone.Location = Point(105 * xRatio,(j.height+5)*yRatio)\r\n\t\t\t\t\trbnone.Width = 100 * xRatio\r\n\t\t\t\t\trbnone.Height = 20 * yRatio\r\n\t\t\t\t\trbnone.Font = SystemFonts.DefaultFont\r\n\t\t\t\t\trbnone.Text = \"Select none\"\t\t\t\r\n\t\t\t\t\trbnone.Click += form.selectnone\t\t\t\r\n\t\t\t\t#Adding controls to panel\r\n\t\t\t\tlvp.Controls.Add(lv)\r\n\t\t\t\tif not j.display_mode:\r\n\t\t\t\t\tlvp.Controls.Add(rball)\r\n\t\t\t\t\tlvp.Controls.Add(rbnone)\r\n\t\t\t\tformbody.Controls.Add(lvp)\r\n\t\t\t\tif not j.display_mode:\r\n\t\t\t\t\tform.output.append(lv)\r\n\t\t\t\ty = lvp.Bottom + 25 * yRatio\r\n\t\t\telif j.__class__.__name__ == 'uitext':\r\n\t\t\t\ttb = myTextBox()\r\n\t\t\t\ttb.Text = j.defaultvalue\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\ttb.Width = formwidth  - rightmargin - xinput\r\n\t\t\t\t\ttb.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\ttb.Width = formwidth - rightmargin - xlabel\r\n\t\t\t\t\ttb.Location = Point(xlabel,y)\r\n\t\t\t\tif j._isnum:\r\n\t\t\t\t\ttb._isNum = True\r\n\t\t\t\t\ttb.KeyPress += form.numsOnly\r\n\t\t\t\tformbody.Controls.Add(tb)\r\n\t\t\t\tformbody.Controls.Add(label)\r\n\t\t\t\tform.output.append(tb)\r\n\t\t\t\ty = label.Bottom + 25 * yRatio\r\n\t\t\telif j.__class__.__name__ == 'uimultilinetext':\r\n\t\t\t\ttb = myTextBox()\r\n\t\t\t\ttb.Text = j.defaultvalue\r\n\t\t\t\ttb.Multiline  = True\r\n\t\t\t\ttb.Height = j._height * yRatio\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\ttb.Width = formwidth  - rightmargin - xinput\r\n\t\t\t\t\ttb.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\ttb.Width = formwidth - rightmargin - xlabel\r\n\t\t\t\t\ttb.Location = Point(xlabel,y)\r\n\t\t\t\tif j._isnum:\r\n\t\t\t\t\ttb._isNum = True\r\n\t\t\t\t\ttb.KeyPress += form.numsOnly\r\n\t\t\t\tformbody.Controls.Add(tb)\r\n\t\t\t\tformbody.Controls.Add(label)\r\n\t\t\t\tform.output.append(tb)\r\n\t\t\t\ty = tb.Bottom + 25 * yRatio\t\t\t\t\t\t\t\t\r\n\t\t\telif j.__class__.__name__ == 'tableview':\r\n\t\t\t\t#Creating grouping panel\r\n\t\t\t\ttvp = Panel()\r\n\t\t\t\ttvp.Location = Point(xlabel,y)\r\n\t\t\t\ttvp.Width = formwidth - rightmargin - xlabel\r\n\t\t\t\tif (50 + len(j.dataList) * 15) * yRatio > 800 * yRatio:\r\n\t\t\t\t\tautoheight = 800 * yRatio\r\n\t\t\t\telse:\r\n\t\t\t\t\tautoheight = (50 + len(j.dataList) * 15\t) * yRatio\t\t\t\r\n\t\t\t\ttvp.Height = autoheight + 73 * yRatio\r\n\t\t\t\t#Creating title\r\n\t\t\t\ttitlep = Label()\r\n\t\t\t\ttitlep.Text = j._tabletitle\r\n\t\t\t\ttitlep.Width = formwidth - rightmargin - xlabel\r\n\t\t\t\ttitlep.BackColor = Color.FromArgb(153,180,209)\r\n\t\t\t\ttitlep.Font = Font(\"Arial\", 11, FontStyle.Bold)\r\n\t\t\t\ttitlep.TextAlign = ContentAlignment.MiddleLeft\r\n\t\t\t\ttitlep.BorderStyle = BorderStyle.FixedSingle\r\n\t\t\t\ttitlep.Location = Point(0,0)\r\n\t\t\t\ttvp.Controls.Add(titlep)\r\n\t\t\t\t#Creating data structure\r\n\t\t\t\tdg = myDataGridView()\r\n\t\t\t\t#dg.SelectionMode = DataGridViewSelectionMode.CellSelect\r\n\t\t\t\tdg.EnableHeadersVisualStyles = False\t\t\t\t\r\n\t\t\t\tdt = DataTable()\r\n\t\t\t\tdl = j.dataList\r\n\t\t\t\tfor i in range(len(dl[0])):\r\n\t\t\t\t\tif j._hasTitle:\r\n\t\t\t\t\t\tdt.Columns.Add(remove_accents(dl[0][i].ToString()))\r\n\t\t\t\t\t\trngstart = 1\r\n\t\t\t\t\telse:\r\n\t\t\t\t\t\tdt.Columns.Add(\"Column \" + str(i))\r\n\t\t\t\t\t\trngstart = 0\t\t\t\t\t\t\r\n\t\t\t\tfor rindex in range(rngstart,len(dl)):\r\n\t\t\t\t\trow = dt.NewRow()\r\n\t\t\t\t\tfor i in range(len(dl[rindex])):\r\n\t\t\t\t\t\trow[i] = dl[rindex][i]\r\n\t\t\t\t\tdt.Rows.Add(row)\t\t\t\t\t\t\r\n\t\t\t\tdg.Tag = j._hasTitle\t\t\t\t\r\n\t\t\t\tdg.DataSource = dt\r\n\t\t\t\tdg.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithAutoHeaderText\r\n\t\t\t\tdg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells\r\n\t\t\t\tdg.Width = formwidth - rightmargin - xlabel\r\n\t\t\t\tdg.Location = Point(0,23 * yRatio)\r\n\t\t\t\tdg.Height = autoheight\r\n\t\t\t\t#Creatin Excel like drag copy functionalities\r\n\t\t\t\tdg.CellMouseDown += form.startCell\r\n\t\t\t\tdg.CellMouseUp += form.endCell\r\n\t\t\t\t#dg.MouseDown += form.startRowDrag\r\n\t\t\t\t#dg.MouseUp = \t\t\t\r\n\t\t\t\ttvp.Controls.Add(dg)\t\t\t\r\n\t\t\t\ty = tvp.Bottom + 15 * yRatio\r\n\t\t\t\t#Adding export to excel button\r\n\t\t\t\tex = Button()\r\n\t\t\t\tex.Tag = [j._hasTitle , j._openExcel , j._showinfo , j._fileInfo]\r\n\t\t\t\ttry:\r\n\t\t\t\t\texpImage = getImageByName(\"exp.png\")[0]\r\n\t\t\t\t\tex.BackgroundImage = expImage\r\n\t\t\t\texcept:\r\n\t\t\t\t\tex.Text = \"Export\"\t\t\t\t\t\r\n\t\t\t\tex.Width = 60 * xRatio\r\n\t\t\t\tex.Height = 30 * yRatio\r\n\t\t\t\tex.Location = Point(formwidth - 125 * xRatio ,dg.Bottom + 15 * yRatio)\t\t\t\t\t\r\n\t\t\t\ttvp.Controls.Add(ex)\r\n\t\t\t\tex.Click += form.exportToExcel\r\n\t\t\t\t#Adding filepath export textbox\r\n\t\t\t\tfilepathtb = TextBox()\r\n\t\t\t\tfilepathtb.Text = \"ExportFileName\"\r\n\t\t\t\tfilepathtb.Location = Point(0 ,dg.Bottom + 20 * yRatio)\r\n\t\t\t\tfilepathtb.Width = formwidth - xlabel - 125 * xRatio\r\n\t\t\t\ttvp.Controls.Add(filepathtb)\r\n\t\t\t\t#Adding copy to clipboard button\r\n\t\t\t\tcb = Button()\r\n\t\t\t\t#Adding panel to form\r\n\t\t\t\tformbody.Controls.Add(tvp)\r\n\t\t\t\tform.output.append(dg)\r\n\t\t\t\ty = tvp.Bottom + 25 * yRatio\r\n\t\t\t\tform.topmost()\r\n\t\t\telif j.__class__.__name__ == 'uitextnote':\r\n\t\t\t\tgb = GroupBox()\r\n\t\t\t\tgb.Text = j.title\r\n\t\t\t\tgb.Parent = form\r\n\t\t\t\tgb.SendToBack()\r\n\t\t\t\tgb.BackColor = Color.Transparent\r\n\t\t\t\tgb.Location = Point(xlabel, y)\r\n\t\t\t\ttn = Label()\r\n\t\t\t\ttn.Location = Point(xlabel,18 * yRatio)\r\n\t\t\t\ttn.AutoSize = True\r\n\t\t\t\ttn.MaximumSize = Size(formwidth - rightmargin - 50 * xRatio,0)\r\n\t\t\t\ttn.Text = j.textnote\r\n\t\t\t\ttn.BringToFront()\r\n\t\t\t\tgb.Controls.Add(tn)\r\n\t\t\t\tgb.Size = Size(formwidth  - rightmargin - 25 * xRatio, tn.Bottom-tn.Top+25 * yRatio)  \r\n\t\t\t\ty = gb.Bottom + 25 * xRatio\r\n\t\t\t\tformbody.Controls.Add(gb)\r\n\t\t\telif j.__class__.__name__ == 'uibool':\r\n\t\t\t\tyn = CheckBox()\r\n\t\t\t\tyn.Width = formwidth - xinput - rightmargin + 10 * xRatio\r\n\t\t\t\tyn.Location = Point(xinput,y)\r\n\t\t\t\tyn.Text = j.booltext\r\n\t\t\t\tg = yn.CreateGraphics()\r\n\t\t\t\tsizetext = g.MeasureString(yn.Text,yn.Font, formwidth - xinput - rightmargin -20 * xRatio)\r\n\t\t\t\theighttext = sizetext.Height\r\n\t\t\t\tyn.Height = heighttext + 15 * yRatio\r\n\t\t\t\tyn.Checked = j.defaultvalue\r\n\t\t\t\tformbody.Controls.Add(yn)\r\n\t\t\t\tform.output.append(yn)\r\n\t\t\t\ty = yn.Bottom + 25 * yRatio\r\n\t\t\telif j.__class__.__name__ == 'uiradio':\r\n\t\t\t\tyrb = 20 * yRatio\r\n\t\t\t\trbs = []\r\n\t\t\t\trbgroup = mygroupbox()\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\trbgroup.Width = formwidth - xinput - rightmargin\r\n\t\t\t\t\trbgroup.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\trbgroup.Width = formwidth - xlabel - rightmargin\r\n\t\t\t\t\trbgroup.Location = Point(xlabel,y)\t\t\t\t\t\r\n\t\t\t\trbgroup.Tag = j\r\n\t\t\t\trbcounter = 0\r\n\t\t\t\tfor key in j.keys():\r\n\t\t\t\t\tif key != 'inputname' and key != 'defaultvalue':\r\n\t\t\t\t\t\trb = RadioButton()\r\n\t\t\t\t\t\trb.Text = key \r\n\t\t\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\t\t\trb.Width = formwidth - xinput - rightmargin - 35 * xRatio\r\n\t\t\t\t\t\telse:\r\n\t\t\t\t\t\t\trb.Width = formwidth - xlabel - rightmargin - 35 * xRatio\r\n\t\t\t\t\t\trb.Location = Point(20 * xRatio,yrb)\r\n\t\t\t\t\t\tif rbcounter == j.defaultvalue:\r\n\t\t\t\t\t\t\trb.Checked = True\r\n\t\t\t\t\t\trbgroup.Controls.Add(rb)\r\n\t\t\t\t\t\tg = rb.CreateGraphics()\r\n\t\t\t\t\t\tsizetext = g.MeasureString(key,rb.Font, formwidth - xinput - 90*xRatio)\r\n\t\t\t\t\t\theighttext = sizetext.Height\r\n\t\t\t\t\t\trb.Height = heighttext + 15 * yRatio\r\n\t\t\t\t\t\tybot = rb.Bottom\r\n\t\t\t\t\t\tyrb += heighttext + 12 * yRatio\r\n\t\t\t\t\t\trbcounter += 1\r\n\t\t\t\t\telse:\r\n\t\t\t\t\t\tpass\r\n\t\t\t\trbgroup.Height = ybot + 20 * yRatio\r\n\t\t\t\t[rbgroup.Controls.Add(rb) for rb in rbs]\r\n\t\t\t\tformbody.Controls.Add(rbgroup)\r\n\t\t\t\tform.output.append(rbgroup)\r\n\t\t\t\ty = rbgroup.Bottom + 25 * yRatio\r\n\t\t\telif j.__class__.__name__  == 'uifilepath':\r\n\t\t\t\tfp = Button()\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\tfp.Width = formwidth - xinput - rightmargin\r\n\t\t\t\t\tfp.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\tfp.Width = formwidth - xlabel - rightmargin\t\t\r\n\t\t\t\t\tfp.Location = Point(xlabel,y)\t\t\t\t\t\r\n\t\t\t\tfp.Tag = j.defaultvalue\r\n\t\t\t\tif not j.defaultvalue == \"FilePath\":\r\n\t\t\t\t\tfp.Tag = j.defaultvalue\r\n\t\t\t\t\tfp.MouseHover += form.showtooltip\t\r\n\t\t\t\tfp.Text = j.buttontext\r\n\t\t\t\tfp.Height = 20 * yRatio\t\t\t\t\r\n\t\t\t\tformbody.Controls.Add(fp)\r\n\t\t\t\tfp.Click += form.openfile\r\n\t\t\t\tform.output.append(fp)\r\n\t\t\t\ty = label.Bottom + 25 * yRatio\r\n\t\t\telif j.__class__.__name__ == 'uidirectorypath':\r\n\t\t\t\tdp = Button()\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\tdp.Width = formwidth - xinput - rightmargin\r\n\t\t\t\t\tdp.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\tdp.Width = formwidth - xlabel - rightmargin\t\t\r\n\t\t\t\t\tdp.Location = Point(xlabel,y)\t\t\t\t\r\n\t\t\t\tdp.Tag = j.defaultvalue\r\n\t\t\t\tdp.Text = j.buttontext\r\n\t\t\t\tif not j.defaultvalue == \"DirectoryPath\":\r\n\t\t\t\t\tdp.Tag = j.defaultvalue\r\n\t\t\t\t\tdp.MouseHover += form.showtooltip\r\n\t\t\t\tdp.Text = j.buttontext\t\r\n\t\t\t\tdp.Height = 20 * yRatio\t\t\t\t\r\n\t\t\t\tformbody.Controls.Add(dp)\r\n\t\t\t\tdp.Click += form.opendirectory\r\n\t\t\t\tform.output.append(dp)\r\n\t\t\t\ty = label.Bottom + 25 * yRatio\r\n\t\t\telif j.__class__.__name__ == 'uiselectelements':\r\n\t\t\t\tse = Button()\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\tse.Width = formwidth - xinput - rightmargin\r\n\t\t\t\t\tse.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\tse.Width = formwidth - xlabel - rightmargin\t\t\r\n\t\t\t\t\tse.Location = Point(xlabel,y)\r\n\t\t\t\tse.Text = j.buttontext\r\n\t\t\t\tse.Height = 20 * yRatio\r\n\t\t\t\tformbody.Controls.Add(se)\r\n\t\t\t\tif j.multi == False:\r\n\t\t\t\t\tse.Click += form.pickobjects\r\n\t\t\t\telse:\r\n\t\t\t\t\tse.Click  += form.pickobject\r\n\t\t\t\tform.output.append(se)\r\n\t\t\t\ty = label.Bottom + 25 * yRatio\r\n\t\t\telif j.__class__.__name__ == 'uiselectOrderedelements':\r\n\t\t\t\tse = Button()\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\tse.Width = formwidth - xinput - rightmargin\r\n\t\t\t\t\tse.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\tse.Width = formwidth - xlabel - rightmargin\t\t\r\n\t\t\t\t\tse.Location = Point(xlabel,y)\r\n\t\t\t\tse.Text = j.buttontext\r\n\t\t\t\tse.Height = 20 * yRatio\t\t\t\t\r\n\t\t\t\tformbody.Controls.Add(se)\r\n\t\t\t\tse.Click  += form.pickobjectsordered\r\n\t\t\t\tform.output.append(se)\r\n\t\t\t\ty = label.Bottom + 25 * yRatio\r\n\t\t\telif j.__class__.__name__ == 'uiselectlinkedelements':\r\n\t\t\t\tse = Button()\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\tse.Width = formwidth - xinput - rightmargin\r\n\t\t\t\t\tse.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\tse.Width = formwidth - xlabel - rightmargin\t\t\r\n\t\t\t\t\tse.Location = Point(xlabel,y)\r\n\t\t\t\tse.Text = j.buttontext\r\n\t\t\t\tse.Height = 20 * yRatio\t\t\t\t\r\n\t\t\t\tformbody.Controls.Add(se)\r\n\t\t\t\tif j.multi == False:\r\n\t\t\t\t\tse.Click += form.picklinkedobjects\r\n\t\t\t\telse:\r\n\t\t\t\t\tse.Click  += form.picklinkedobject\r\n\t\t\t\tform.output.append(se)\r\n\r\n\t\t\t\ty = label.Bottom + 25 * yRatio\r\n\t\t\telif j.__class__.__name__ == 'uiselectlinkedelementsofcat':\r\n\t\t\t\tsec = Button()\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\tsec.Width = formwidth - xinput - rightmargin\r\n\t\t\t\t\tsec.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\tsec.Width = formwidth - xlabel - rightmargin\t\t\r\n\t\t\t\t\tsec.Location = Point(xlabel,y)\r\n\t\t\t\tsec.Text = j.buttontext\r\n\t\t\t\tsec.Tag = j.category\r\n\t\t\t\tsec.Height = 20 * yRatio\r\n\t\t\t\tformbody.Controls.Add(sec)\r\n\t\t\t\tif j.multi == False:\r\n\t\t\t\t\tsec.Click += form.picklinkedobjectsofcat\r\n\t\t\t\telse:\r\n\t\t\t\t\tsec.Click += form.picklinkedobjectofcat\r\n\t\t\t\tform.output.append(sec)\r\n\t\t\t\ty = label.Bottom + 25 * yRatio\r\n\t\t\telif j.__class__.__name__ == 'uiselectelementsofcat':\r\n\t\t\t\tsec = Button()\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\tsec.Width = formwidth - xinput - rightmargin\r\n\t\t\t\t\tsec.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\tsec.Width = formwidth - xlabel - rightmargin\t\t\r\n\t\t\t\t\tsec.Location = Point(xlabel,y)\r\n\t\t\t\tsec.Text = j.buttontext\r\n\t\t\t\tsec.Tag = j.category\r\n\t\t\t\tsec.Height = 20 * yRatio\r\n\t\t\t\tformbody.Controls.Add(sec)\r\n\t\t\t\tif j.multi == False:\r\n\t\t\t\t\tsec.Click += form.pickobjectsofcat\r\n\t\t\t\telse:\r\n\t\t\t\t\tsec.Click += form.pickobjectofcat\r\n\t\t\t\tform.output.append(sec)\r\n\t\t\t\ty = label.Bottom + 25 * yRatio\r\n\t\t\telif j.__class__.__name__ == 'uiselectOrderedelementsofcat':\r\n\t\t\t\tsec = Button()\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\tsec.Width = formwidth - xinput - rightmargin\r\n\t\t\t\t\tsec.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\tsec.Width = formwidth - xlabel - rightmargin\t\t\r\n\t\t\t\t\tsec.Location = Point(xlabel,y)\r\n\t\t\t\tsec.Text = j.buttontext\r\n\t\t\t\tsec.Tag = j.category\r\n\t\t\t\tsec.Height = 20 * yRatio\r\n\t\t\t\tformbody.Controls.Add(sec)\r\n\t\t\t\tsec.Click += form.pickobjectsofcatordered\r\n\t\t\t\tform.output.append(sec)\r\n\t\t\t\ty = label.Bottom + 25 * yRatio\r\n\t\t\telif j.__class__.__name__ == 'uiselectfaces':\r\n\t\t\t\tsf = Button()\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\tsf.Width = formwidth - xinput - rightmargin\r\n\t\t\t\t\tsf.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\tsf.Width = formwidth - xlabel - rightmargin\t\t\r\n\t\t\t\t\tsf.Location = Point(xlabel,y)\r\n\t\t\t\tsf.Text = j.buttontext\r\n\t\t\t\tsf.Height = 20 * yRatio\r\n\t\t\t\tformbody.Controls.Add(sf)\r\n\t\t\t\tsf.Click += form.pickfaces\r\n\t\t\t\tform.output.append(sf)\r\n\t\t\t\ty = label.Bottom + 25 * yRatio\r\n\t\t\telif j.__class__.__name__ == 'uiselectpointsonface':\r\n\t\t\t\tspf = Button()\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\tspf.Width = formwidth - xinput - rightmargin\r\n\t\t\t\t\tspf.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\tspf.Width = formwidth - xlabel - rightmargin\t\t\r\n\t\t\t\t\tspf.Location = Point(xlabel,y)\r\n\t\t\t\tspf.Text = j.buttontext\r\n\t\t\t\tspf.Height = 20 * yRatio\r\n\t\t\t\tformbody.Controls.Add(spf)\r\n\t\t\t\tspf.Click += form.pickpointsonface\r\n\t\t\t\tform.output.append(spf)\r\n\t\t\t\ty = label.Bottom + 25 * yRatio\r\n\t\t\telif j.__class__.__name__ == 'uiselectedges':\r\n\t\t\t\tsed = Button()\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\tsed.Width = formwidth - xinput - rightmargin\r\n\t\t\t\t\tsed.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\tsed.Width = formwidth - xlabel - rightmargin\t\t\r\n\t\t\t\t\tsed.Location = Point(xlabel,y)\r\n\t\t\t\tsed.Text = j.buttontext\r\n\t\t\t\tsed.Height = 20 * yRatio\r\n\t\t\t\tformbody.Controls.Add(sed)\r\n\t\t\t\tsed.Click += form.pickedges\r\n\t\t\t\tform.output.append(sed)\r\n\t\t\t\ty = label.Bottom + 25 * yRatio\r\n\t\t\t\t\r\n\t\t\telif j.__class__.__name__ == 'uislider':\r\n\t\t\t\tgb = Panel()\r\n\t\t\t\tif j.defaultvalue == '':\r\n\t\t\t\t\tdefval = j.minimum\r\n\t\t\t\telse:\r\n\t\t\t\t\tdefval = j.defaultvalue\r\n\t\t\t\tsl = mytrackbar(j.minimum,j.step)\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\tgb.Width = formwidth - xinput - rightmargin\r\n\t\t\t\t\tgb.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\tgb.Width = formwidth - xlabel - rightmargin\t\t\r\n\t\t\t\t\tgb.Location = Point(xlabel,y)\r\n\t\t\t\tgb.Height = 40 * yRatio\r\n\t\t\t\tsl.Minimum = 0\r\n\t\t\t\tsl.Maximum = (j.maximum-j.minimum)/j.step\r\n\t\t\t\tsl.Value = (defval - j.minimum) / j.step\r\n\t\t\t\tsl.TickFrequency = (j.maximum-j.minimum)/j.step/10\r\n\t\t\t\tsl.Location = Point(40 * xRatio,0)\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\tsl.Width = formwidth - xinput - rightmargin - 35 * xRatio\r\n\t\t\t\telse:\r\n\t\t\t\t\tsl.Width = formwidth - xlabel -rightmargin - 35 * xRatio\r\n\t\t\t\tgb.Controls.Add(sl)\r\n\t\t\t\tform.output.append(sl)\r\n\t\t\t\tdisplabel = Label()\r\n\t\t\t\tdisplabel.Width = 50 * xRatio\r\n\t\t\t\tdisplabel.Location = Point(0,5 * yRatio)\r\n\t\t\t\tdisplabel.Text = str(defval)\r\n\t\t\t\tdisplabel.Height = 30 * yRatio\r\n\t\t\t\tdisplabel.BringToFront()\r\n\t\t\t\tgb.Controls.Add(displabel)\t\r\n\t\t\t\tformbody.Controls.Add(gb)\t\t\t\r\n\t\t\t\tsl.Scroll += form.scroll\r\n\t\t\t\ty = label.Bottom + 25 * yRatio\r\n\t\t\telif j.__class__.__name__ == 'uiimage':\r\n\t\t\t\tpic = Image.FromFile(j.image)\r\n\t\t\t\tim = PictureBox()\r\n\t\t\t\tif j.showborder:\r\n\t\t\t\t\tim.BorderStyle = BorderStyle.Fixed3D\r\n\t\t\t\telse:\r\n\t\t\t\t\tim.BorderStyle = BorderStyle.None\r\n\t\t\t\tratio = (pic.Height)/(pic.Width)\r\n\t\t\t\th = float(pic.Height)\r\n\t\t\t\tw = float(pic.Width)\r\n\t\t\t\tratio = h/w\r\n\t\t\t\timage_maxsize = formwidth - xlabel - rightmargin\r\n\t\t\t\tim.Size = Size(image_maxsize,image_maxsize*ratio)\r\n\t\t\t\tscaledimage = Bitmap(image_maxsize,image_maxsize*ratio)\r\n\t\t\t\tgr = Graphics.FromImage(scaledimage)\r\n\t\t\t\tgr.DrawImage(pic,0,0,image_maxsize,image_maxsize*ratio)\r\n\t\t\t\tim.Image = pic\r\n\t\t\t\tim.SizeMode = PictureBoxSizeMode.Zoom\r\n\t\t\t\tformbody.Controls.Add(im)\r\n\t\t\t\tim.Location = Point(25 * xRatio,y+25*yRatio)\r\n\t\t\t\ty = im.Bottom + 25 * yRatio\r\n\t\t\r\n\t\t\telif j.__class__.__name__ == 'uicolorpick' and importcolorselection == 0:\r\n\t\t\t\tcp = Button()\r\n\t\t\t\tif j.inputname != \"\":\r\n\t\t\t\t\tcp.Width = formwidth - xinput - rightmargin\r\n\t\t\t\t\tcp.Location = Point(xinput,y)\r\n\t\t\t\telse:\r\n\t\t\t\t\tcp.Width = formwidth - xlabel - rightmargin\t\t\r\n\t\t\t\t\tcp.Location = Point(xlabel,y)\r\n\t\t\t\tcp.Text = j.buttontext\r\n\t\t\t\tcp.Height = 30 * yRatio\r\n\t\t\t\tformbody.Controls.Add(cp)\r\n\t\t\t\tcp.Click += form.colorpicker\r\n\t\t\t\tform.output.append(cp)\r\n\t\t\t\ty = label.Bottom + 25 * yRatio\t\r\n\t\t\telif j.__class__.__name__ == 'uicolorpick' and importcolorselection == 1:\r\n\t\t\t\timportcolorselection = 2\r\n\t\t\telif j.__class__.__name__ == 'uigroup':\r\n\t\t\t\tgrouppanel = GroupBox()\r\n\t\t\t\tgrouppanel.Text = j.groupname\r\n\t\t\t\tgrouppanel.Location = Point(xlabel,y)\r\n\t\t\t\tgrouppanel.Width = formwidth - 65 * xRatio\r\n\t\t\t\t#recursive implementation of the definition to process grouped inputs\r\n\t\t\t\taddinput(grouppanel,j.inputgroup,25*yRatio,xinput-25*xRatio,80 * xRatio,90 * xRatio,importcolorselection)\r\n\t\t\t\tformbody.Controls.Add(grouppanel)\r\n\t\t\t\ty = grouppanel.Bottom + 25 * yRatio\r\n\t\t\telif j.__class__.__name__ == 'uiconditional':\r\n\t\t\t\tgrouppanelcond = GroupBox()\r\n\t\t\t\tgrouppanelcond.Location = Point(xlabel,y)\r\n\t\t\t\tgrouppanelcond.Width = formwidth - 65 * xRatio\t\r\n\t\t\t\tform.output.append(grouppanelcond)\t\t\t\t\r\n\t\t\t\t#recursive implementation of the definition to process conditional groups of inputs\r\n\t\t\t\tpanlist = []\r\n\t\t\t\trblist = []\r\n\t\t\t\typ = 25 * yRatio\r\n\t\t\t\txrb = 25 * xRatio\r\n\t\t\t\tfor i,d in zip(j._Conditions,j._GroupedInputs):\t\r\n\t\t\t\t\trb = RadioButton()\r\n\t\t\t\t\trb.CheckedChanged += form.ActivateOption\r\n\t\t\t\t\trb.Text = i\r\n\t\t\t\t\trb.Location\t= Point(xrb,10*yRatio)\r\n\t\t\t\t\trb.Width = 95 * xRatio\r\n\t\t\t\t\trblist.append(rb)\t\t\t\t\t\r\n\t\t\t\t\tgrouppanelcond.Controls.Add(rb)\t\t\t\t\r\n\t\t\t\t\tcondition_pannel = Panel()\r\n\t\t\t\t\tcondition_pannel.Name = i\r\n\t\t\t\t\tcondition_pannel.Top = yp\r\n\t\t\t\t\tcondition_pannel.Width = formwidth - 65 * xRatio\r\n\t\t\t\t\tcondition_pannel.BackColor = Color.Transparent\r\n\t\t\t\t\tcondition_pannel.BringToFront()\t\t\t\t\t\r\n\t\t\t\t\taddinput(condition_pannel,d,25*yRatio,xinput-25*xRatio,80*xRatio,90*xRatio,importcolorselection)\r\n\t\t\t\t\tpanlist.append(condition_pannel)\r\n\t\t\t\t\typ = condition_pannel.Bottom - 25*yRatio\r\n\t\t\t\t\txrb += 100 * xRatio\r\n\t\t\t\tfor pan in panlist:\r\n\t\t\t\t\tgrouppanelcond.Controls.Add(pan)\r\n\t\t\t\tfor e,pan in enumerate(panlist):\r\n\t\t\t\t\tif e != j._defaultOptionIndex:\r\n\t\t\t\t\t\tpan.Enabled = False\r\n\t\t\t\t\telse:\r\n\t\t\t\t\t\tcontinue\r\n\t\t\t\trblist[j._defaultOptionIndex].Checked = True\r\n\t\t\t\tgrouppanelcond.Height = sum([p.Height for p in panlist]) - (len(panlist)-2)*25 * yRatio\r\n\t\t\t\tgrouppanelcond.BackColor = Color.Transparent\t\t\t\t\r\n\t\t\t\tformbody.Controls.Add(grouppanelcond)\r\n\t\t\t\tform.output.append([grouppanelcond.Tag])\t\t\t\t\r\n\t\t\t\ty = grouppanelcond.Bottom + 25*yRatio\r\n\t\t\tformbody.Height = y\r\n\r\n\r\n\t# process input lists \r\n\taddinput(body,inputtypes,0,xinput,40 * xRatio ,120 * xRatio,importcolorselection)\r\n\t\r\n\t#add the formbody panel to the form\r\n\tform.Controls.Add(body)\t\t\r\n\t\r\n\r\n\tif IN[6] != None:\r\n\t\tif IN[8] > 400 * yRatio:\r\n\t\t\tformy += 50 * yRatio\r\n\t\t\txinput = 270 * yRatio\r\n\t\telse:\r\n\t\t\tformy = logo.Bottom + 20 * yRatio\r\n\telse:\r\n\t\tformy += 50 * yRatio\r\n\r\n\r\n\r\n\t#Adding validation button\r\n\t\r\n\tbutton = Button()\r\n\tbutton.Text = IN[1]\r\n\tbutton.Width = formwidth - xinput - 40 * xRatio\r\n\tbutton.Height = 20 * yRatio\r\n\tbutton.Location = Point (xinput,formy)\r\n\tbutton.Click += form.setclose\r\n\tform.Controls.Add(button)\r\n\tform.MaximizeBox = False\r\n\tform.MinimizeBox = False\r\n\tform.FormBorderStyle = FormBorderStyle.FixedSingle\r\n\t\r\n\t#Adding Cancel button\r\n\tif IN[6] != None:\r\n\t\tcancelbutton = Button()\r\n\t\tcancelbutton.Text = IN[6]\r\n\t\tcancelbutton.Width = 120 * xRatio\r\n\t\tcancelbutton.Height = 20 * xRatio\r\n\t\tcancelbutton.Name = \"Cancel\"\r\n\t\tcancelbutton.Location = Point (xinput -120 * xRatio ,formy)\r\n\t\tcancelbutton.Click += form.setclose\r\n\t\tform.Controls.Add(cancelbutton)\r\n\t\tform.CancelButton = cancelbutton\r\n\t\r\n\t#Adding link to help\r\n\t\r\n\tif IN[5] != None :\r\n\t\thelplink = LinkLabel()\r\n\t\thelplink.Text = \"Help\"\r\n\t\thelplink.Tag = IN[5]\r\n\t\thelplink.Click += form.openurl\r\n\t\thelplink.Location = Point(formwidth - 65 * xRatio ,formy+30 * yRatio)\r\n\t\tform.Controls.Add(helplink)\r\n\telse:\r\n\t\tpass\t\r\n\t\t\t\r\n\tform.ShowIcon = True\r\n\tform.Width = formwidth\r\n\tform.Height = formy + 120 * yRatio\r\n\tformfooterheight = form.Height - formheaderheight\r\n\t\r\n\t# Make formbody scrollable\r\n\t\r\n\t# if the form is longer than its maximum height, do the following:\r\n\t# modify the form height\r\n\t# make the formbody panel scrollable\r\n\tif form.Height + body.Height > IN[7] * yRatio and IN[7] * yRatio > 0:\r\n\t\tformbody_calculatedheight = IN[7] * yRatio - form.Height\r\n\t\t# make sure the formbody is at least 100 px high\r\n\t\tif formbody_calculatedheight < 100 * yRatio: formbody_calculatedheight = 100 * yRatio\r\n\t\tbody.Height = formbody_calculatedheight\r\n\t\tform.Height = form.Height + formbody_calculatedheight\r\n\t\t# this (and apparently only this) will implement a vertical AutoScroll *only*\r\n\t\t# http://stackoverflow.com/a/28583501\r\n\t\tbody.HorizontalScroll.Maximum = 0\r\n\t\tbody.AutoScroll = False\r\n\t\tbody.VerticalScroll.Visible = False\r\n\t\tbody.AutoScroll = True\r\n\t\tbody.BorderStyle = BorderStyle.Fixed3D\r\n\telse:\r\n\t\tform.Height = form.Height + body.Height\r\n\t# Move footer elements\r\n\tlogo.Location = Point(logo.Location.X, logo.Location.Y + body.Height)\r\n\tbutton.Location = Point(button.Location.X, button.Location.Y + body.Height)\r\n\tif IN[6] != None: cancelbutton.Location = Point(cancelbutton.Location.X, cancelbutton.Location.Y + body.Height)\r\n\tif IN[5] != None: helplink.Location = Point(helplink.Location.X, helplink.Location.Y + body.Height)\r\n\r\n\t#Positionning the form at top left of current view\r\n\tuiviews = uidoc.GetOpenUIViews()\r\n\tif doc.ActiveView.IsValidType(doc.ActiveView.GetTypeId()):\r\n\t\tactiveviewid = doc.ActiveView.Id\r\n\t\tactiveUIView = [v for v in uiviews if v.ViewId == activeviewid][0]\r\n\telse:\r\n\t\tactiveUIView = uiviews[0]\r\n\trect = activeUIView.GetWindowRectangle()\r\n\tform.StartPosition = FormStartPosition.Manual\r\n\tform.Location = Point(rect.Left-7 * xRatio,rect.Top)\r\n\t\r\n\t\t\r\n\tif IN[2]:\r\n\t\tif importcolorselection != 2:\r\n\t\t\tApplication.Run(form)\r\n\t\t\tresult = form.values\r\n\t\t\tOUT = result,True, form.cancelled \r\n\t\telse:\r\n\t\t\tOUT = ['ColorSelection input is only available With Revit 2017'] , False, False\r\n\telse :\r\n\t\tOUT = ['Set toggle to true!'] , False, False\r\nexcept:\r\n\timport traceback\r\n\tOUT = traceback.format_exc() , \"error\", \"error\"\r\n",
+      "VariableInputPorts": true,
+      "Id": "7d9bef60676a4874b8572abfb52d7cdd",
+      "Inputs": [
+        {
+          "Id": "bec0c7a617b349ecb277578ff61f6e8d",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ba1b457742d3460bb8982131d18f7648",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "66f22d2b13eb4ba5b653c94bc05f1aca",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ed8add7834c548e3bea7448ce54c59f8",
+          "Name": "IN[3]",
+          "Description": "Input #3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "917714c01f87455a8c3d36f4d36b791e",
+          "Name": "IN[4]",
+          "Description": "Input #4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7dffdc8bfc924a42a598b336f1435189",
+          "Name": "IN[5]",
+          "Description": "Input #5",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "319776a7101e448a8d836be2a5678409",
+          "Name": "IN[6]",
+          "Description": "Input #6",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2cb75b41b91741c494111b2295c0a057",
+          "Name": "IN[7]",
+          "Description": "Input #7",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "15c6f6ed289f485e807fb23d16511b19",
+          "Name": "IN[8]",
+          "Description": "Input #8",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f05144c471d44d22825643c60f4ef5ff",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "#Copyright (c) mostafa el ayoubi ,  2018\r\n#Data-Shapes www.data-shapes.net , elayoubi.mostafa@gmail.com\r\n\r\nclass uitext():\r\n\r\n    def __init__(self,inputname,defaultvalue,_isnum):\r\n        self.inputname = inputname\r\n        self.defaultvalue = defaultvalue\r\n        self._isnum = _isnum\r\n\r\n    def __repr__(self):\r\n        return 'UI.Textbox input'\r\n        \r\nx = uitext(IN[0],IN[1],IN[2])\r\n\r\n\r\nOUT = x",
+      "VariableInputPorts": true,
+      "Id": "fda23898bca6444ca660b84e92b38ef6",
+      "Inputs": [
+        {
+          "Id": "bbf8c051d42946bc8fad5906023c961d",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "08305886d53b4c77a24d7c2e3e81df5f",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "228684554d6140e6a58b39c34b2c1042",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2e1cdd79ccca48fface4d3510a37ec4f",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Clean@var[]..[],bool",
+      "Id": "9cb7c10ce78c42938d71c96ddda858de",
+      "Inputs": [
+        {
+          "Id": "6d144e6054344744b3514cc5485aa2f9",
+          "Name": "list",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e2e648d6edd74fd5845717118f39a1a7",
+          "Name": "preserveIndices",
+          "Description": "Provide an option to preserve the indices of the data such that non-trailing nulls may not be filtered out\n\nbool\nDefault value : true",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2758cd8a3f2d489b865cd2d6c5b9bf73",
+          "Name": "var[]..[]",
+          "Description": "A list cleaned of nulls and empty lists",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Cleans data of nulls and empty lists from a given list of arbitrary dimension\n\nList.Clean (list: var[]..[], preserveIndices: bool = true): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "false;",
+      "Id": "353fb42a1a4943e3b95bd95a6bdad82f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f740859457e94bc28f52e7766eae319c",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.String.Insert@string,int,string",
+      "Id": "2d3ba08fbf3b449eb49b085179ac35b3",
+      "Inputs": [
+        {
+          "Id": "34583f63dbb449edb9d376949ce00ad3",
+          "Name": "str",
+          "Description": "String to insert into.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ed7cc99138b0427db96f04b0f2ba0ef6",
+          "Name": "index",
+          "Description": "Index to insert at.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f9e2817a76114193bbb44ba04a5e6d1d",
+          "Name": "toInsert",
+          "Description": "String to be inserted.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f2d5c93bf77c4d0c88b09c97e6412c97",
+          "Name": "str",
+          "Description": "String with inserted substring.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Longest",
+      "Description": "Inserts a string into another string at a given index.\n\nString.Insert (str: string, index: int, toInsert: string): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0;",
+      "Id": "a44cb225c9d5464fb6774ae5d43decd6",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "a4f53970de004102a4dc916fd1360257",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"WORKSETS SETUP\";",
+      "Id": "9176ed7401394f4e9d3c226b79b3123e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "04c476ab161b49cb8a798642ad4c6df9",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# BIM One Inc. - Jean-Marc Couffin - 2019\r\n\r\nimport clr\r\nclr.AddReference('RevitAPIUI')\r\nfrom Autodesk.Revit.UI import TaskDialog\r\n\r\n\r\nTitle = \"Worksets\"\r\n\r\na = str('\\n'.join(IN[0]))\r\nb = str('\\n'.join(IN[1]))\r\nc = str('\\n'.join(IN[2]))\r\nd = str('\\n'.join(IN[3]))\r\n\r\n\r\nTaskDialog.Show( Title, a+b+'\\n'+c+d  )\r\n",
+      "VariableInputPorts": true,
+      "Id": "e9c7426cae454ba1a504ab30d3b8c08c",
+      "Inputs": [
+        {
+          "Id": "ed94c89df6534f3b8339d88b3de5a3ff",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "09415012588b45b9b33b015fc1d58456",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3163802b54ba4a9a8041beb95bb2f9fc",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "19c0db6204d1466bab0997551ae9d9c4",
+          "Name": "IN[3]",
+          "Description": "Input #3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8f166636e2db4a48b59028d4bb04e3ba",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import clr\nclr.AddReference('ProtoGeometry')\nfrom Autodesk.DesignScript.Geometry import *\n\n# Import DocumentManager and TransactionManager\nclr.AddReference(\"RevitServices\")\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\nfrom RevitServices.Transactions import TransactionManager\n\n# Import RevitAPI\nclr.AddReference(\"RevitAPI\")\nimport Autodesk\nfrom Autodesk.Revit.DB import *\n\n#The inputs to this node will be stored as a list in the IN variables.\ntoggleForRefresh = IN[0] # HACK: toggling the value of this boolean will cause Dynamo to re-execute this python script.\n\n\ndoc = DocumentManager.Instance.CurrentDBDocument\ncollector = FilteredWorksetCollector(doc)\nworksets = collector.OfKind(WorksetKind.UserWorkset).ToWorksets()\n\n# Convert Revit Workset elements to Dynamo Workset objects ('True' means \"Revit-owned\" as opposed to Dynamo-created elements)\n\nworksetInt = []\n\nfor i in worksets:\n\tworksetInt.append(i.Id.IntegerValue)\n\nOUT = worksetInt, list(workset.Name for workset in worksets)\n",
+      "VariableInputPorts": true,
+      "Id": "96741e9d9642483da85fa0b3adcca5bd",
+      "Inputs": [
+        {
+          "Id": "a19f7c0c6f2a4d0496def13d66cf4b20",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ae0c37801ac04001b77510a0db421916",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "x[0];\nx[1];",
+      "Id": "48b34667b3174e06b3f1b67cd10b8314",
+      "Inputs": [
+        {
+          "Id": "9229bc499f9442f1bb4f435d522102a8",
+          "Name": "x",
+          "Description": "x",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5ac2f40b09b647ddb01d980658bebc53",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cca9bbdea99a44d7966c4270e9674d18",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "true;",
+      "Id": "7152e270c94248258c851e6e85ecffc8",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "d2382f9bfa784903bcbdb7be0640676e",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSVarArgFunction, DynamoCore",
+      "FunctionSignature": "DSCore.String.Join@string,string[]",
+      "FunctionType": "VariableArgument",
+      "NodeType": "FunctionNode",
+      "Id": "d123f7df9f804473aa4f4124b3cfcc4c",
+      "Inputs": [
+        {
+          "Id": "3643b1b696494c2e88a20e571aee4911",
+          "Name": "separator",
+          "Description": "String to be inserted between joined strings.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "924c7cc3c86f47b899fb305f5d312f70",
+          "Name": "string0",
+          "Description": "Strings to be joined into a single string.\n\nstring[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f447be5127a347fba043b5143f5ad9d7",
+          "Name": "str",
+          "Description": "A string made from the list of strings including the separator character.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Concatenates multiple strings into a single string, inserting the given separator between each joined string.\n\nString.Join (separator: string, strings: string[]): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\", \";",
+      "Id": "2a3d736e1b6e42e5ab3a41d6eb73db64",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "5f617aa27b7f443ba514e2714916e24d",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSVarArgFunction, DynamoCore",
+      "FunctionSignature": "DSCore.String.Join@string,string[]",
+      "FunctionType": "VariableArgument",
+      "NodeType": "FunctionNode",
+      "Id": "92ab4bc809b54dbaab143290cce026f6",
+      "Inputs": [
+        {
+          "Id": "49b6b753a5d046bb87d3a234866c7acc",
+          "Name": "separator",
+          "Description": "String to be inserted between joined strings.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d48ed115691d488ca8b42e31a24949eb",
+          "Name": "string0",
+          "Description": "Strings to be joined into a single string.\n\nstring[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "dec6320fa86a4c61b07bdd0517c59321",
+          "Name": "str",
+          "Description": "A string made from the list of strings including the separator character.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Concatenates multiple strings into a single string, inserting the given separator between each joined string.\n\nString.Join (separator: string, strings: string[]): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\", \";",
+      "Id": "a288be85b4c849088f91dd2c9943f793",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ee8c5bcdf577455589330824d57af3f4",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "c1b21a48864e47f58ecc98e85e155b2e",
+      "End": "6d144e6054344744b3514cc5485aa2f9",
+      "Id": "a54c8bea82ac4cd2875e3837f298c144"
+    },
+    {
+      "Start": "8d8f1879733e41f99f52df2b465af10b",
+      "End": "cb4863b617364e199dd2d532ae7d99e0",
+      "Id": "5ea04e5d5bd24e69944aa0d6882ddfe3"
+    },
+    {
+      "Start": "301f55eed30f423da2e2b515461ab6f7",
+      "End": "4bba2865f2834bceafb61faffad38916",
+      "Id": "2aea3f3b212f4de3a7b8f5ec8ed3f16e"
+    },
+    {
+      "Start": "240f564b7ee144f1b1e2f11e0b91e942",
+      "End": "d041d3119f434151b697c650bfaf709a",
+      "Id": "fc5e197ae69f434dbd92f0c9f4758381"
+    },
+    {
+      "Start": "cb6b9326bc24426d96e9638fed02ff36",
+      "End": "3ede4a43e106462f9361fb26c6a0ee7d",
+      "Id": "4dbe3b1de9fa45178c0b2c2a8f10ac16"
+    },
+    {
+      "Start": "ffb419f3f0c7493c93aa15696e7e44b1",
+      "End": "d48ed115691d488ca8b42e31a24949eb",
+      "Id": "4d5d5e3f9ad44577a3b7b78b785c554d"
+    },
+    {
+      "Start": "7557a821ccbc410ca351136a28807ea9",
+      "End": "bf1bb93674ac4feab71d15595c5a8ace",
+      "Id": "393469df6e1c4dfebefa435e76ae9b3a"
+    },
+    {
+      "Start": "04fc46d361374c55bbd934c830ff8a81",
+      "End": "18cd90a39d3f4533a376955aa6c5c71d",
+      "Id": "191788cb6da84670a01d12add2a748a7"
+    },
+    {
+      "Start": "c3ad6129a99c49b1b87cefb28f520884",
+      "End": "849b94e5dfbc4b5599a5f919372d0d11",
+      "Id": "c2cb55985af64599819f4646baa451a4"
+    },
+    {
+      "Start": "95707c918201455cbeb9b3be599c6317",
+      "End": "9f23289e45ac49afaa7434cb8e2cb598",
+      "Id": "7a6576af99bc4921b803c7111ca58c08"
+    },
+    {
+      "Start": "111b448631a24fafac58d6269d16efa5",
+      "End": "1128f71a13a44066b89c61c5ca546017",
+      "Id": "153939039da64acf94400ec6fe942203"
+    },
+    {
+      "Start": "04ba91d1b8bf49f498bf01acbf168ae9",
+      "End": "40aa158ed4674239bd89a04bf176767f",
+      "Id": "56e6ada332a848dea019d5c12d6fd4b5"
+    },
+    {
+      "Start": "0ec1e17ef6464814b43435e652492421",
+      "End": "2735d2faf1f34b9ebedf8c37cb5c1893",
+      "Id": "667a05e72d734f98bf0a4f2e8a27cd23"
+    },
+    {
+      "Start": "01bc49e23dee479a967be51ab4f8ea8d",
+      "End": "999db59c107b4a7ba70432de41dc8ba2",
+      "Id": "1357c27f819d4980976ef0bddc7aa5a9"
+    },
+    {
+      "Start": "01bc49e23dee479a967be51ab4f8ea8d",
+      "End": "1047081f6f0542e28a05033213ee9e9a",
+      "Id": "12a5128ebb934d40b6c39fdd3b9aab56"
+    },
+    {
+      "Start": "c53b29cd26cc40d6a100e4aeb167601f",
+      "End": "15254e7c92054dd7976cac36956ea731",
+      "Id": "e087f6ad69ca41c585bd4124e56aaf15"
+    },
+    {
+      "Start": "d357a6adc48d4964a5b9506eeeca30a6",
+      "End": "98eb0ccd52c64603a3902fa494ccc82b",
+      "Id": "24dde0938874407bb399568d8c6b56b5"
+    },
+    {
+      "Start": "358a3af9b53b4d889164fd912e8589c8",
+      "End": "27dbecfecb1f4ab6be28aa52b02de811",
+      "Id": "d77c14e5785f4dd4bae902da900cfa83"
+    },
+    {
+      "Start": "8fc986e9a4724b068bd6fe290c8292cf",
+      "End": "1bf82c7147ce4f7c9086f319db86ce6d",
+      "Id": "8296b14b8e6648fb80a3ae682c290f4c"
+    },
+    {
+      "Start": "de8663692e0d49f595604032b79e1894",
+      "End": "4deda682e2624aa88db804ef0df6a0b3",
+      "Id": "dc6745a217f44be09265d17d8904d880"
+    },
+    {
+      "Start": "e07a1d4bdd204737a0256f189a67e3ba",
+      "End": "c1e6054dc10c43e895a1d90fe4d35f53",
+      "Id": "dfdaf97f6a8348acac106650a4393635"
+    },
+    {
+      "Start": "e2291ee1040840c5b3a46117cf90828f",
+      "End": "5a4611b792724c288cefb4f28c00e4e5",
+      "Id": "29f0ac1a8a384e5a97a40d1d637b1ea1"
+    },
+    {
+      "Start": "2be10aae3a444a88b461afb2405de615",
+      "End": "3a8a8c1549df4f849cf3d16c93327f91",
+      "Id": "9f6a58a7a2d845a5ae90503b0d83d508"
+    },
+    {
+      "Start": "5e3856c4420a4cb2b8bd913a9023d6ac",
+      "End": "3768f3cfe2ad47c8bda2341a3c7076a6",
+      "Id": "be51aac5f5b44dae8093e0c5fe70fb0d"
+    },
+    {
+      "Start": "7f18ecda1a0043faac46c22dd8e01305",
+      "End": "fe165b085e6b429abef75bc1873e9e7a",
+      "Id": "87c8bcce3d814ba59a9d00a4f1af4ccc"
+    },
+    {
+      "Start": "8cc168d07f0247a08a2b5b91fad831f7",
+      "End": "acc3add185c14c1fadd14787b2010eb3",
+      "Id": "524104f5923f40db88695e437136bf2d"
+    },
+    {
+      "Start": "b74f6bb8836641abb75a40b2e2bb334f",
+      "End": "27ca3094d7f148e4be1b36fa853ccd2c",
+      "Id": "567ff182864e4fec8dd5a94433f8afdc"
+    },
+    {
+      "Start": "a45c08753cae403fbaa6b792ed68dc17",
+      "End": "91f1581532404ef29f25f99a942eb86d",
+      "Id": "457885827d66425990e1858ca3da6c17"
+    },
+    {
+      "Start": "79f13d44da7f45b2a40b9ec44a704f57",
+      "End": "02dece3419e54bfdb703d467e393b6e6",
+      "Id": "01fa23546a444a6d96b348b74a7a901c"
+    },
+    {
+      "Start": "e7ba7946f55348aebba06818fe0ba3dd",
+      "End": "924c7cc3c86f47b899fb305f5d312f70",
+      "Id": "52414c3bcf2f4fcc90bf6f8c1f86240c"
+    },
+    {
+      "Start": "4cf57d0fc8e248e1be13dc84893ed223",
+      "End": "2e42a8b944114f00aedd79e4aa5685b9",
+      "Id": "e62010bb7ddb459cabfb434e9a06d314"
+    },
+    {
+      "Start": "90e45468392d405aaa11c7ce60169198",
+      "End": "ed94c89df6534f3b8339d88b3de5a3ff",
+      "Id": "ec557d1fdb42465781eda1657c387677"
+    },
+    {
+      "Start": "85ebc769199b4b299ee98e82abbe12a6",
+      "End": "3163802b54ba4a9a8041beb95bb2f9fc",
+      "Id": "251b818ee4c445eaa9379b251123084f"
+    },
+    {
+      "Start": "5f49f90431e3446cbfc501159a25be39",
+      "End": "08305886d53b4c77a24d7c2e3e81df5f",
+      "Id": "226b543cd39d4013abfec6e2509ec82a"
+    },
+    {
+      "Start": "bfe21cace77042f18937146a6d842de3",
+      "End": "8d661ce2f2b642edb70c501dfd1cc802",
+      "Id": "0971226371fb4e6393055a45890ae050"
+    },
+    {
+      "Start": "7d23c3fbdaf844d19262c286bd525fab",
+      "End": "2d6a1b9f85564837b6432aa753b3bccd",
+      "Id": "d0a5a1aa5a2741a6a01c44eded67cedd"
+    },
+    {
+      "Start": "993af9b932e8435b98a84ad94808cb3f",
+      "End": "1a898b9969614e66b6e2b277c4eb082b",
+      "Id": "24090cc1c8064f12b5523f6b98bbf4a6"
+    },
+    {
+      "Start": "e79cfe65a8ad488e9fbc496a4c4d8d7d",
+      "End": "91b776d09904420babcfcb73ba964e51",
+      "Id": "99ce71aaa1184a93b5c24b0d1fccdefd"
+    },
+    {
+      "Start": "c336d1e11607413faa6096b47df3b656",
+      "End": "f9e2817a76114193bbb44ba04a5e6d1d",
+      "Id": "da629fd4d18a49d1a75ed14bcfbed129"
+    },
+    {
+      "Start": "1269fcffab044cd6ad95ca6fd2f9c064",
+      "End": "5e8c8fb49b3f4f09b953cd99324f0e29",
+      "Id": "1e750943c11d4fdfaa9fb632ad685680"
+    },
+    {
+      "Start": "cb6caf2401814fd698a7abc8d23f74fb",
+      "End": "d3db01ac477e4aa5a024df5e07c56bb9",
+      "Id": "32eb1db65fb746ca86a22ff019f86537"
+    },
+    {
+      "Start": "419a1e1d5b094cfaa302362bc5cc6906",
+      "End": "e5162822a927455eaadf4a66f4670922",
+      "Id": "453559e235e146ea9e90529b96048568"
+    },
+    {
+      "Start": "36112f7cf53d4a3097d29031d2ed6f39",
+      "End": "34583f63dbb449edb9d376949ce00ad3",
+      "Id": "3fc0725752564926805ad7a0901374c6"
+    },
+    {
+      "Start": "accce8648b1c48c6a1877eb59fb17184",
+      "End": "7c78cb88e0f04617aa286493f4a2bcac",
+      "Id": "966435ad832a43f58fcde5a0b5fecdf4"
+    },
+    {
+      "Start": "823ce9a71be144f8927e0060ab792b3b",
+      "End": "89985e48b88d4dd593b6be385cab9ed0",
+      "Id": "7d16919eaec94031a539b401f3321e33"
+    },
+    {
+      "Start": "dca2064652df4025b533dd455ef73312",
+      "End": "ce18f6dcb82242f78c9aa8bed8097dfd",
+      "Id": "1f1c57d802b64b3db90132eacff44386"
+    },
+    {
+      "Start": "0b423ccaad3444f5adda880676a18117",
+      "End": "c6e03e763b8d41f8984695d779725808",
+      "Id": "2fc2cc99c04547f5bd55e1cea06b5682"
+    },
+    {
+      "Start": "30fe251afc8e4a1ea166b4a36a8f5387",
+      "End": "bbf8c051d42946bc8fad5906023c961d",
+      "Id": "a8bbec4697c84a69b318b3e3f29ce299"
+    },
+    {
+      "Start": "19634f3a99ab4a7fabddb0b9c74754ac",
+      "End": "66f22d2b13eb4ba5b653c94bc05f1aca",
+      "Id": "bea2437e39ce49ddbec4f7ee0d4e56bf"
+    },
+    {
+      "Start": "a6b3e19f00204477b74c38e55f1ca55a",
+      "End": "ed6f8a348b5942c1bd03466db9749b1c",
+      "Id": "b8a3ec91e370442ca867cb0a43f2a964"
+    },
+    {
+      "Start": "71d9441dc9cf47ae83546c50e020014e",
+      "End": "ba1b457742d3460bb8982131d18f7648",
+      "Id": "c86d94212e3a42f18aa7c514914b56bc"
+    },
+    {
+      "Start": "4518a9c8914f450da80efa82ffffcf5d",
+      "End": "ed8add7834c548e3bea7448ce54c59f8",
+      "Id": "a0377c9c16df44b5911b7625f06f66bb"
+    },
+    {
+      "Start": "ed90f219e3fa46e38c22f31cdc78390b",
+      "End": "917714c01f87455a8c3d36f4d36b791e",
+      "Id": "eea0947e17d94ffd8ac24bf4a73bec3b"
+    },
+    {
+      "Start": "b87919db32de43818024fcfef9592ec7",
+      "End": "319776a7101e448a8d836be2a5678409",
+      "Id": "f95ca8bae3204bdcb2a879192fd17c41"
+    },
+    {
+      "Start": "d508d87fd8974083aa16141127c47e78",
+      "End": "7dffdc8bfc924a42a598b336f1435189",
+      "Id": "497a99d991a443aaa5a92b042672775a"
+    },
+    {
+      "Start": "feda317ae5cc45bc8e98b3205623364a",
+      "End": "2cb75b41b91741c494111b2295c0a057",
+      "Id": "b0c5788618c04745844168f9fe4e67c7"
+    },
+    {
+      "Start": "2b5b8c0ea30d44dbba454998b446a6ec",
+      "End": "15c6f6ed289f485e807fb23d16511b19",
+      "Id": "8e1b413a5a454773b59ee82284ff2526"
+    },
+    {
+      "Start": "3f52525ee33649408a8751b32f7ea94a",
+      "End": "228684554d6140e6a58b39c34b2c1042",
+      "Id": "d518daf1833b40fb9fb73f765e872206"
+    },
+    {
+      "Start": "f05144c471d44d22825643c60f4ef5ff",
+      "End": "14e65b9c1da94ae0abeb1aef4b68932c",
+      "Id": "258b917975cc476eb0b6eb8e160b1a7d"
+    },
+    {
+      "Start": "2e1cdd79ccca48fface4d3510a37ec4f",
+      "End": "bec0c7a617b349ecb277578ff61f6e8d",
+      "Id": "72837d9ea9f6492992c12174d1b34fb8"
+    },
+    {
+      "Start": "2758cd8a3f2d489b865cd2d6c5b9bf73",
+      "End": "c3bc0a1e66cc4191956c12c746c1cd88",
+      "Id": "fe80c236690947c993e33d4e93b2203c"
+    },
+    {
+      "Start": "f740859457e94bc28f52e7766eae319c",
+      "End": "e2e648d6edd74fd5845717118f39a1a7",
+      "Id": "425425b724b04d188b698ea71f54c04b"
+    },
+    {
+      "Start": "f2d5c93bf77c4d0c88b09c97e6412c97",
+      "End": "14719c96e0bf4886b652731953d0fbab",
+      "Id": "8e45c9ab65ae425ab0fe1526588e754a"
+    },
+    {
+      "Start": "a4f53970de004102a4dc916fd1360257",
+      "End": "ed7cc99138b0427db96f04b0f2ba0ef6",
+      "Id": "634c0328ab5748c989f2909f16cd4f53"
+    },
+    {
+      "Start": "04c476ab161b49cb8a798642ad4c6df9",
+      "End": "bbdf7f4c985b424d8f4b6fb2f546de2b",
+      "Id": "19ba869855b54e50b693e347b7071702"
+    },
+    {
+      "Start": "ae0c37801ac04001b77510a0db421916",
+      "End": "9229bc499f9442f1bb4f435d522102a8",
+      "Id": "c837575308b54db1946983a842155c8e"
+    },
+    {
+      "Start": "5ac2f40b09b647ddb01d980658bebc53",
+      "End": "1a9840bfd0f146ffbd9f1763df5b1925",
+      "Id": "439d415916db4927bbb661041cdfe8b4"
+    },
+    {
+      "Start": "5ac2f40b09b647ddb01d980658bebc53",
+      "End": "440f7db739ec4daf82322e914899357d",
+      "Id": "08fe85c0a2754477b6f7a19a420bb9c3"
+    },
+    {
+      "Start": "cca9bbdea99a44d7966c4270e9674d18",
+      "End": "d2346dc96d224b0faed3c6a29e775b1d",
+      "Id": "b09d9f9a048c480ea502e76475fc043d"
+    },
+    {
+      "Start": "cca9bbdea99a44d7966c4270e9674d18",
+      "End": "c5f78a3defda48f582703f5c4b9e0236",
+      "Id": "4e5746cc9d864d9bbab169bdb8310197"
+    },
+    {
+      "Start": "d2382f9bfa784903bcbdb7be0640676e",
+      "End": "a19f7c0c6f2a4d0496def13d66cf4b20",
+      "Id": "bad9c046c40d425988df22c2a3ea8bbd"
+    },
+    {
+      "Start": "f447be5127a347fba043b5143f5ad9d7",
+      "End": "09415012588b45b9b33b015fc1d58456",
+      "Id": "1ebbe68382b541729a50f7c1898e4e92"
+    },
+    {
+      "Start": "5f617aa27b7f443ba514e2714916e24d",
+      "End": "3643b1b696494c2e88a20e571aee4911",
+      "Id": "e64e209d25f447059be820687825396a"
+    },
+    {
+      "Start": "dec6320fa86a4c61b07bdd0517c59321",
+      "End": "19c0db6204d1466bab0997551ae9d9c4",
+      "Id": "c17ace88dc694e47ba3bc57d13e67a73"
+    },
+    {
+      "Start": "ee8c5bcdf577455589330824d57af3f4",
+      "End": "49b6b753a5d046bb87d3a234866c7acc",
+      "Id": "6ab5e7738b6b423ca6dc83b705d5a6f9"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "Id": "d2ac3de8172c4f55b421f7498f1e4400",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "List.Flatten",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 2247.6932775918867,
+        "Y": -839.21065966642539
+      },
+      {
+        "Id": "7b54073cfe6b41c4825675ef8e64e258",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "List.FilterByBoolMask",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 923.17296202621947,
+        "Y": -555.02830500260848
+      },
+      {
+        "Id": "d67436fce0f84ced8abb922e6bfcdf9d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "List.FilterByBoolMask",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 923.17296202621947,
+        "Y": -421.02830500260848
+      },
+      {
+        "Id": "4815a0004ada4055a9c2d88f8481fed5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "List.Create",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1194.1729620262195,
+        "Y": -501.02830500260848
+      },
+      {
+        "Id": "7be1d6d77ce44dc5810632251c41d206",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "List.Flatten",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1949.1457202970037,
+        "Y": -384.8960741907697
+      },
+      {
+        "Id": "67a9823ba01c428e858f21dedb2c276c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Python Script",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 2832.0706080613081,
+        "Y": -364.8909715501718
+      },
+      {
+        "Id": "d934aa5ea9094f37aa0fd317e038fb67",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "String",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 158.17296202621947,
+        "Y": -522.02830500260848
+      },
+      {
+        "Id": "a72219f2e475441d805df5b14c9ca5fc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "String",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 158.17296202621947,
+        "Y": -239.02830500260848
+      },
+      {
+        "Id": "0d6372ce9c36440893d5f5b3af237920",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "List.Create",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1783.1112237981752,
+        "Y": -385.25334461058651
+      },
+      {
+        "Id": "605fce07184d4a118afd8dcf602c9d3a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "If",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 382.17296202621947,
+        "Y": -320.02830500260848
+      },
+      {
+        "Id": "a861c763791c4d269bbbce01060c2b2d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "String",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 158.17296202621947,
+        "Y": -323.02830500260848
+      },
+      {
+        "Id": "f499e949798f40488b1890e7c596dd1a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "If",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 382.17296202621947,
+        "Y": -600.02830500260848
+      },
+      {
+        "Id": "3659456691644d679be279ce469a63bd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "String",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 158.17296202621947,
+        "Y": -605.02830500260848
+      },
+      {
+        "Id": "f5bea5ee53cd4f079642f9bc8d7878be",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Python Script - Get Revit Language",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -751.51839492122963,
+        "Y": -547.29956182806859
+      },
+      {
+        "Id": "d00edf82cb6846fab289bd6b5dbcc67e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "String.ToUpper",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1215.1012173985855,
+        "Y": -996.21282464837986
+      },
+      {
+        "Id": "d606eaaa16934006a13e789ca2ac9106",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "List.FirstItem",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 869.601606603535,
+        "Y": -975.82048668899984
+      },
+      {
+        "Id": "631c0164675d4a6fb392d78c869dbe9b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "String.Split",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 563.5010529820147,
+        "Y": -959.56964086895982
+      },
+      {
+        "Id": "f8559ed01e0f4b76a521d8131df3490b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "List.UniqueItems",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 324.7135016563152,
+        "Y": -969.23555589208968
+      },
+      {
+        "Id": "cde3ad82982d4f15bdeb0c579d262d30",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "String",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 412.35363507289503,
+        "Y": -866.60835549327976
+      },
+      {
+        "Id": "fa2d8d5cd9f147a6a418a2a542efaffc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "List.FirstItem",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 92.536051791766113,
+        "Y": -964.47294153588973
+      },
+      {
+        "Id": "e882027408f44c029978715e8ccda1fd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "String.Split",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -216.33979414476926,
+        "Y": -971.23506574561975
+      },
+      {
+        "Id": "4935b234bc85456b95d4e78e6156e394",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "String",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -345.793681972611,
+        "Y": -894.22704831517967
+      },
+      {
+        "Id": "8b9e5b9a88a249fb83aa64a605e6a6b2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Python Script",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -544.87904739614987,
+        "Y": -958.09508585210983
+      },
+      {
+        "Id": "92351965f6d9487f8862ef2e0782b42d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "List.Empty",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -637.97510842194515,
+        "Y": -947.23640084307
+      },
+      {
+        "Id": "396bb0c31f44479cb99bfa78c111d259",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1405.8664677380802,
+        "Y": -1008.4128688407623
+      },
+      {
+        "Id": "9691852578084ef28c09de5bf3799e38",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "String.Contains",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 609.17296202621947,
+        "Y": -542.02830500260848
+      },
+      {
+        "Id": "acbd47dccffc423f8dd6ab4bc0b49102",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "String.Contains",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 609.17296202621947,
+        "Y": -382.02830500260848
+      },
+      {
+        "Id": "5e8efe882d9045b6b3ea1bbebdbd692b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "List Create",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 2027.6932775918867,
+        "Y": -839.21065966642539
+      },
+      {
+        "Id": "53cb173b743f4b92a9e8935e3047f623",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Create workset",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 2830.5307696912942,
+        "Y": -956.34650117097522
+      },
+      {
+        "Id": "967ffbd56c8c415eb76391adc36ee5c2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "List.Flatten",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1358.2206014473495,
+        "Y": -646.85674969791876
+      },
+      {
+        "Id": "693fa59cfeca40b29b450b8df4bc43b5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 3268.8399480961343,
+        "Y": -848.549000525824
+      },
+      {
+        "Id": "61c6a49628274e02a902e1fdb9393a3e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 3254.6100584237997,
+        "Y": -707.5870705429154
+      },
+      {
+        "Id": "799e656a654948c4acad9b641d2a702a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "File Path",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -3426.6307796256087,
+        "Y": -954.81753970797376
+      },
+      {
+        "Id": "fde3b11cdc474e11abb4172c60a7c224",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -1557.4164398703192,
+        "Y": -777.20051529505565
+      },
+      {
+        "Id": "a3b5a58b2ddf4ee88394a1fcb39da43c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "List.RemoveItemAtIndex",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -1557.4164398703192,
+        "Y": -911.41384862838549
+      },
+      {
+        "Id": "c7525d6862164909bad9ef48c1ea0da9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "List.Clean",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -1279.4164398703192,
+        "Y": -859.41384862838561
+      },
+      {
+        "Id": "a970f35470544a5c940eb25c537194aa",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -1887.4164398703192,
+        "Y": -803.20051529505565
+      },
+      {
+        "Id": "6b34ae4da9554ffcbd130804b2f8fde3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -921.41643987031921,
+        "Y": -855.20051529505565
+      },
+      {
+        "Id": "719a23a341ef4ed1ba8f433f74601e76",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "File From Path",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -2265.4164398703192,
+        "Y": -1002.4138486283855
+      },
+      {
+        "Id": "4e6d475b3cb04a8eb87f2eb70fa16316",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -2265.4164398703192,
+        "Y": -894.20051529505554
+      },
+      {
+        "Id": "2c4f4c7ee76e4880b3170e848d2aea90",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -2265.4164398703192,
+        "Y": -785.20051529505656
+      },
+      {
+        "Id": "d78c9d15cd4d4a0397916597bd6b042e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Data.ImportExcel",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -1887.4164398703192,
+        "Y": -989.41384862838549
+      },
+      {
+        "Id": "de0e9dcade2949fa97928daf5ccb1d74",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -3205.5010756075308,
+        "Y": -1043.6792494914707
+      },
+      {
+        "Id": "4ca54353a00f417d96febf713c102da3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -3009.5010756075308,
+        "Y": -751.67924949147073
+      },
+      {
+        "Id": "8720b1942cb44b9484d139a37209200c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -2457.5010756075308,
+        "Y": -643.67924949147073
+      },
+      {
+        "Id": "c7d7749997364e96a01287a1ff59faa9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -3009.5010756075308,
+        "Y": -859.67924949147073
+      },
+      {
+        "Id": "e721aa857c574486a907e9f9ba70b5bd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -3009.5010756075308,
+        "Y": -642.67924949147073
+      },
+      {
+        "Id": "fc7d20495b45486eaa1324b34db827f7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -3009.5010756075308,
+        "Y": -533.67924949147084
+      },
+      {
+        "Id": "e20b51cf500b44cd8248b5ce6c33a63f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -3009.5010756075308,
+        "Y": -317.67924949147073
+      },
+      {
+        "Id": "0e21eb60e0024c1caa70b504467f7a17",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -3009.5010756075308,
+        "Y": -425.67924949147073
+      },
+      {
+        "Id": "fdb5414973bf4d5a861d94a10f92f305",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -3009.5010756075308,
+        "Y": -209.67924949147073
+      },
+      {
+        "Id": "bdcf169936034056a2fdb246e8d9cd42",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -3009.5010756075308,
+        "Y": -100.67924949147073
+      },
+      {
+        "Id": "51c509e910514dce89af397b7c198dd0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -3205.5010756075308,
+        "Y": -935.67924949147073
+      },
+      {
+        "Id": "7d9bef60676a4874b8572abfb52d7cdd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Python Script",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -2681.5010756075308,
+        "Y": -647.89258282480409
+      },
+      {
+        "Id": "fda23898bca6444ca660b84e92b38ef6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Python Script",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -3009.5010756075308,
+        "Y": -1019.8925828248041
+      },
+      {
+        "Id": "9cb7c10ce78c42938d71c96ddda858de",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "List.Clean",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 2474.3865737768033,
+        "Y": -841.65921362282
+      },
+      {
+        "Id": "353fb42a1a4943e3b95bd95a6bdad82f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 2372.3121099547825,
+        "Y": -703.83801374655138
+      },
+      {
+        "Id": "2d3ba08fbf3b449eb49b085179ac35b3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "String.Insert",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1752.5463506341412,
+        "Y": -965.72320696372913
+      },
+      {
+        "Id": "a44cb225c9d5464fb6774ae5d43decd6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 1586.2709732489056,
+        "Y": -1001.2670790758955
+      },
+      {
+        "Id": "9176ed7401394f4e9d3c226b79b3123e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -2121.1277374172541,
+        "Y": -945.08134636498448
+      },
+      {
+        "Id": "e9c7426cae454ba1a504ab30d3b8c08c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Python Script",
+        "ShowGeometry": false,
+        "Excluded": false,
+        "X": 3683.3426378189779,
+        "Y": -932.74161963201777
+      },
+      {
+        "Id": "96741e9d9642483da85fa0b3adcca5bd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Get all worksets",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 158.17296202621947,
+        "Y": -437.31497166927522
+      },
+      {
+        "Id": "48b34667b3174e06b3f1b67cd10b8314",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 382.17296202621947,
+        "Y": -438.10163833594186
+      },
+      {
+        "Id": "7152e270c94248258c851e6e85ecffc8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -20.827037973780534,
+        "Y": -433.10163833594197
+      },
+      {
+        "Id": "d123f7df9f804473aa4f4124b3cfcc4c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "String.Join",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 3420.8079809342908,
+        "Y": -1015.367094349232
+      },
+      {
+        "Id": "2a3d736e1b6e42e5ab3a41d6eb73db64",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 3259.6487518524582,
+        "Y": -1006.3984429162431
+      },
+      {
+        "Id": "92ab4bc809b54dbaab143290cce026f6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "String.Join",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 3418.0090492140321,
+        "Y": -487.76846508095832
+      },
+      {
+        "Id": "a288be85b4c849088f91dd2c9943f793",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 3256.8498201322022,
+        "Y": -478.79981364796936
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "e9b44e3574864a3eab28808c7761a823",
+        "Title": "PACKAGE NAME",
+        "Nodes": [
+          "f8e31f2bf13947d5b3ba7d377cb11e69"
+        ],
+        "Left": -1504.1686016234282,
+        "Top": -1430.5951238307412,
+        "Width": 299.0,
+        "Height": 184.0,
+        "FontSize": 36.0,
+        "InitialTop": -1377.5951238307412,
+        "InitialHeight": 140.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "a8dd5e7429f54645b09c61d2737a70a7",
+        "Title": "ACTION - DATA",
+        "Nodes": [
+          "43a8119a002841e4833b02e29607788a"
+        ],
+        "Left": -2221.5254998483897,
+        "Top": -1426.198883518822,
+        "Width": 306.0,
+        "Height": 141.0,
+        "FontSize": 36.0,
+        "InitialTop": -1373.198883518822,
+        "InitialHeight": 140.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "bc5568cba3c44bc297bd5dd3e163258f",
+        "Title": "MONITORING - description",
+        "Nodes": [
+          "dac62ae411c24eacaa985bafaba8768d"
+        ],
+        "Left": -1114.3977154780887,
+        "Top": -1431.2438408743114,
+        "Width": 302.0,
+        "Height": 212.0,
+        "FontSize": 36.0,
+        "InitialTop": -1335.2438408743114,
+        "InitialHeight": 140.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FF848484"
+      },
+      {
+        "Id": "e354d19d94ba4d96927ee1c95e2a6b47",
+        "Title": "ACTION - GEOMETRY",
+        "Nodes": [
+          "e0b63421dc674e62b0b4cc1a8793b0a9"
+        ],
+        "Left": -1871.6233627847653,
+        "Top": -1428.868325866707,
+        "Width": 305.0,
+        "Height": 198.0,
+        "FontSize": 36.0,
+        "InitialTop": -1332.868325866707,
+        "InitialHeight": 140.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FF71C6A8"
+      },
+      {
+        "Id": "5a003c2a0ea74886a0785a539e77d3cc",
+        "Title": "UI",
+        "Nodes": [
+          "3f419d7c31174d719a9bc5005b483c54"
+        ],
+        "Left": -2677.0231890691061,
+        "Top": -1424.7149320970113,
+        "Width": 319.0,
+        "Height": 155.0,
+        "FontSize": 36.0,
+        "InitialTop": -1371.7149320970113,
+        "InitialHeight": 140.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFFFAA45"
+      },
+      {
+        "Id": "c1753582325c4b2d8514c1987dc59642",
+        "Title": "CONSTRAINT",
+        "Nodes": [
+          "8a9aecd9a72c40d4bd1393f498d3736e"
+        ],
+        "Left": -3081.6327311738969,
+        "Top": -1420.1542349785693,
+        "Width": 318.0,
+        "Height": 112.0,
+        "FontSize": 36.0,
+        "InitialTop": -1367.1542349785693,
+        "InitialHeight": 140.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFFF7BAC"
+      },
+      {
+        "Id": "26c4ef18a3ea49e99e05a9504ebaf339",
+        "Title": "INPUT",
+        "Nodes": [
+          "b72efddebb7c49e8bc964a5c7e32e7a3"
+        ],
+        "Left": -3429.4147129095627,
+        "Top": -1416.9938382819587,
+        "Width": 292.0,
+        "Height": 112.0,
+        "FontSize": 36.0,
+        "InitialTop": -1363.9938382819587,
+        "InitialHeight": 140.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFBB87C6"
+      },
+      {
+        "Id": "8eb7e5d95aed4e6bad671503ace337ef",
+        "Title": "ACTION - DATA\r\nGet Revit Language",
+        "Nodes": [
+          "f5bea5ee53cd4f079642f9bc8d7878be"
+        ],
+        "Left": -761.51839492122963,
+        "Top": -665.29956182806859,
+        "Width": 246.0,
+        "Height": 211.0,
+        "FontSize": 30.0,
+        "InitialTop": -547.29956182806859,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 108.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "a40a4e75bc32430dbd81f473241ef0ec",
+        "Title": "ACTION - DATA\r\nCreate aworksets from a list\r\nChange name of system worksets",
+        "Nodes": [
+          "67a9823ba01c428e858f21dedb2c276c"
+        ],
+        "Left": 2822.0706080613081,
+        "Top": -806.8909715501718,
+        "Width": 144.0,
+        "Height": 561.0,
+        "FontSize": 36.0,
+        "InitialTop": -364.8909715501718,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 432.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "2d2621b1e1924955982ff34ac228944e",
+        "Title": "ACTION - DATA\r\nGet a list of revit links and create a list of worksets names with ZL_ as prefix",
+        "Nodes": [
+          "d00edf82cb6846fab289bd6b5dbcc67e",
+          "d606eaaa16934006a13e789ca2ac9106",
+          "631c0164675d4a6fb392d78c869dbe9b",
+          "f8559ed01e0f4b76a521d8131df3490b",
+          "cde3ad82982d4f15bdeb0c579d262d30",
+          "fa2d8d5cd9f147a6a418a2a542efaffc",
+          "e882027408f44c029978715e8ccda1fd",
+          "4935b234bc85456b95d4e78e6156e394",
+          "8b9e5b9a88a249fb83aa64a605e6a6b2",
+          "92351965f6d9487f8862ef2e0782b42d",
+          "396bb0c31f44479cb99bfa78c111d259"
+        ],
+        "Left": -647.97510842194515,
+        "Top": -1104.4128688407623,
+        "Width": 2178.8415761600254,
+        "Height": 305.8045133474825,
+        "FontSize": 36.0,
+        "InitialTop": -1008.4128688407623,
+        "InitialHeight": 286.8045133474825,
+        "TextblockHeight": 86.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "2b0090a627614c00bf6dd888769d959f",
+        "Title": "ACTION - DATA\r\nget and filter system worksets (by name)",
+        "Nodes": [
+          "7b54073cfe6b41c4825675ef8e64e258",
+          "d67436fce0f84ced8abb922e6bfcdf9d",
+          "4815a0004ada4055a9c2d88f8481fed5",
+          "d934aa5ea9094f37aa0fd317e038fb67",
+          "a72219f2e475441d805df5b14c9ca5fc",
+          "605fce07184d4a118afd8dcf602c9d3a",
+          "a861c763791c4d269bbbce01060c2b2d",
+          "f499e949798f40488b1890e7c596dd1a",
+          "3659456691644d679be279ce469a63bd",
+          "9691852578084ef28c09de5bf3799e38",
+          "acbd47dccffc423f8dd6ab4bc0b49102",
+          "48b34667b3174e06b3f1b67cd10b8314",
+          "7152e270c94248258c851e6e85ecffc8",
+          "96741e9d9642483da85fa0b3adcca5bd"
+        ],
+        "Left": -30.827037973780534,
+        "Top": -701.02830500260848,
+        "Width": 1355.0,
+        "Height": 530.0,
+        "FontSize": 36.0,
+        "InitialTop": -605.02830500260848,
+        "InitialHeight": 511.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "eb2184b9eef9489f89a02a1b2b613e6b",
+        "Title": "RHYTHM\r\nworkset create",
+        "Nodes": [
+          "53cb173b743f4b92a9e8935e3047f623"
+        ],
+        "Left": 2820.5307696912942,
+        "Top": -1096.3465011709752,
+        "Width": 154.42333333333335,
+        "Height": 233.0,
+        "FontSize": 36.0,
+        "InitialTop": -956.34650117097522,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 130.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "c09b81c91f86494da9a946b07702c28c",
+        "Title": "INPUT\r\nExcel file path",
+        "Nodes": [
+          "799e656a654948c4acad9b641d2a702a"
+        ],
+        "Left": -3436.6307796256087,
+        "Top": -1094.8175397079738,
+        "Width": 190.0,
+        "Height": 234.0,
+        "FontSize": 36.0,
+        "InitialTop": -954.81753970797376,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 130.0,
+        "Background": "#FFBB87C6"
+      },
+      {
+        "Id": "16dfb30510eb4eef9e555f1646524a96",
+        "Title": "ACTION - DATA\r\nGet Excel File Content",
+        "Nodes": [
+          "d78c9d15cd4d4a0397916597bd6b042e",
+          "2c4f4c7ee76e4880b3170e848d2aea90",
+          "4e6d475b3cb04a8eb87f2eb70fa16316",
+          "719a23a341ef4ed1ba8f433f74601e76",
+          "6b34ae4da9554ffcbd130804b2f8fde3",
+          "a970f35470544a5c940eb25c537194aa",
+          "c7525d6862164909bad9ef48c1ea0da9",
+          "a3b5a58b2ddf4ee88394a1fcb39da43c",
+          "fde3b11cdc474e11abb4172c60a7c224",
+          "9176ed7401394f4e9d3c226b79b3123e"
+        ],
+        "Left": -2275.4164398703192,
+        "Top": -1098.4138486283855,
+        "Width": 1454.0,
+        "Height": 414.21333333332984,
+        "FontSize": 36.0,
+        "InitialTop": -1002.4138486283855,
+        "InitialHeight": 370.21333333332984,
+        "TextblockHeight": 86.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "43c49f00e9d24562863e0c8985273f76",
+        "Title": "UI - Nom de la base de données",
+        "Nodes": [
+          "de0e9dcade2949fa97928daf5ccb1d74",
+          "4ca54353a00f417d96febf713c102da3",
+          "7d9bef60676a4874b8572abfb52d7cdd",
+          "8720b1942cb44b9484d139a37209200c",
+          "c7d7749997364e96a01287a1ff59faa9",
+          "e721aa857c574486a907e9f9ba70b5bd",
+          "fc7d20495b45486eaa1324b34db827f7",
+          "e20b51cf500b44cd8248b5ce6c33a63f",
+          "0e21eb60e0024c1caa70b504467f7a17",
+          "fdb5414973bf4d5a861d94a10f92f305",
+          "bdcf169936034056a2fdb246e8d9cd42",
+          "fda23898bca6444ca660b84e92b38ef6",
+          "51c509e910514dce89af397b7c198dd0"
+        ],
+        "Left": -3215.5010756075308,
+        "Top": -1096.6792494914707,
+        "Width": 895.0,
+        "Height": 1089.0,
+        "FontSize": 36.0,
+        "InitialTop": -1043.6792494914707,
+        "InitialHeight": 1088.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFFFAA45"
+      },
+      {
+        "Id": "8e0d726815dd43efb9858e27e97b0fa1",
+        "Title": "BIMOne",
+        "Nodes": [
+          "f583903e4d7e46ffb03d0bc67b10d48e",
+          "e4141d0452184261bd332b728897dd00",
+          "6a89445849e1406eaf8ffd50a0cf7bc5",
+          "f9ca3664c81442b49f1da9d66de1c9e6",
+          "bf9dd89622ce405480c3519960c593d5"
+        ],
+        "Left": -3435.0113218838578,
+        "Top": -1807.3307309429431,
+        "Width": 1229.6763150896177,
+        "Height": 172.74009298383771,
+        "FontSize": 36.0,
+        "InitialTop": -1754.3307309429431,
+        "InitialHeight": 143.74009298383771,
+        "TextblockHeight": 43.0,
+        "Background": "#FFD8D8D8"
+      },
+      {
+        "Id": "51b34d2457e64630b264d119ba13a96c",
+        "Title": "MONITORING\r\nCount how many were processed",
+        "Nodes": [
+          "e9c7426cae454ba1a504ab30d3b8c08c"
+        ],
+        "Left": 3673.3426378189779,
+        "Top": -1115.7416196320178,
+        "Width": 233.04666666666668,
+        "Height": 354.0,
+        "FontSize": 36.0,
+        "InitialTop": -932.74161963201777,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 173.0,
+        "Background": "#FF848484"
+      },
+      {
+        "Id": "b1b60322bac54e05994f32f6a9e4417f",
+        "Title": "MONITORING\r\nCompose report",
+        "Nodes": [
+          "693fa59cfeca40b29b450b8df4bc43b5",
+          "61c6a49628274e02a902e1fdb9393a3e",
+          "d123f7df9f804473aa4f4124b3cfcc4c",
+          "2a3d736e1b6e42e5ab3a41d6eb73db64",
+          "92ab4bc809b54dbaab143290cce026f6",
+          "a288be85b4c849088f91dd2c9943f793"
+        ],
+        "Left": 3244.6100584237997,
+        "Top": -1111.367094349232,
+        "Width": 384.197922510491,
+        "Height": 742.59862926827373,
+        "FontSize": 36.0,
+        "InitialTop": -1015.367094349232,
+        "InitialHeight": 681.56728070126269,
+        "TextblockHeight": 86.0,
+        "Background": "#FF848484"
+      },
+      {
+        "Id": "e836d419acf64e84a777fc33e4df1bb0",
+        "Title": "ACTION DATA\r\nAssemble strings of worksets names",
+        "Nodes": [
+          "d2ac3de8172c4f55b421f7498f1e4400",
+          "5e8efe882d9045b6b3ea1bbebdbd692b",
+          "9cb7c10ce78c42938d71c96ddda858de",
+          "353fb42a1a4943e3b95bd95a6bdad82f",
+          "2d3ba08fbf3b449eb49b085179ac35b3",
+          "a44cb225c9d5464fb6774ae5d43decd6"
+        ],
+        "Left": 1576.2709732489056,
+        "Top": -1097.2670790758955,
+        "Width": 1166.1156005278976,
+        "Height": 486.4290653293441,
+        "FontSize": 36.0,
+        "InitialTop": -1001.2670790758955,
+        "InitialHeight": 442.4290653293441,
+        "TextblockHeight": 86.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "dc7ae3f2e9614984b6c186de8cc0960c",
+        "Title": "BACKEND",
+        "Nodes": [],
+        "Left": -2220.0781208284134,
+        "Top": -1479.6001991248156,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "f445b62960504f92a622b635851d116d",
+        "Title": "MONITORING",
+        "Nodes": [],
+        "Left": -1114.602353738147,
+        "Top": -1479.075033366777,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "f8e31f2bf13947d5b3ba7d377cb11e69",
+        "Title": "Always name the specific package to facilitate debugging and deployment\r\n\r\nExploding a package helps deployment to clients\r\n\r\nExample:\r\nClockworks 1.5.5",
+        "Nodes": [],
+        "Left": -1494.1686016234282,
+        "Top": -1377.5951238307412,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "43a8119a002841e4833b02e29607788a",
+        "Title": "part of the script that affect data: \r\n\r\nExamples: \r\nACTION - DATA - get parameter name from txt file",
+        "Nodes": [],
+        "Left": -2211.5254998483897,
+        "Top": -1373.198883518822,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "dac62ae411c24eacaa985bafaba8768d",
+        "Title": "ckeck the integrity and consistency of data or geometry affected \r\n\r\nExamples: \r\nnumber of rooms matches number of parameters changed",
+        "Nodes": [],
+        "Left": -1104.3977154780887,
+        "Top": -1335.2438408743114,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "e0b63421dc674e62b0b4cc1a8793b0a9",
+        "Title": "part of the script that affect  geometry: \r\n\r\nExamples: \r\nACTION - GEOMETRY - translate geometry to new location",
+        "Nodes": [],
+        "Left": -1861.6233627847653,
+        "Top": -1332.868325866707,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "3f419d7c31174d719a9bc5005b483c54",
+        "Title": "User interface for the script: describe what the UI will do\r\n\r\nExample: \r\nUI - get shared parameter file path",
+        "Nodes": [],
+        "Left": -2667.0231890691061,
+        "Top": -1371.7149320970113,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "205f1951826e45b4b52b6731706510a3",
+        "Title": "USER INTERFACE",
+        "Nodes": [],
+        "Left": -2674.8535576060603,
+        "Top": -1478.2324330946894,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "8a9aecd9a72c40d4bd1393f498d3736e",
+        "Title": "Fixed input that should not be set as inputs available through the dynamo player",
+        "Nodes": [],
+        "Left": -3071.6327311738969,
+        "Top": -1367.1542349785693,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "b72efddebb7c49e8bc964a5c7e32e7a3",
+        "Title": "input by user that should be set as input for the dynamo player",
+        "Nodes": [],
+        "Left": -3419.4147129095627,
+        "Top": -1363.9938382819587,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "f2772f7f308e4289a907c143c9c029d9",
+        "Title": "INPUT",
+        "Nodes": [],
+        "Left": -3430.3259961132703,
+        "Top": -1464.9678106885685,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "f583903e4d7e46ffb03d0bc67b10d48e",
+        "Title": "Created by BIMOne\r\nWorkset creation from excel worksets and parameters list",
+        "Nodes": [],
+        "Left": -3425.0113218838578,
+        "Top": -1754.3092383627707,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "e4141d0452184261bd332b728897dd00",
+        "Title": "Copyright:\r\nThis script is provided \"as-is\" under MIT License",
+        "Nodes": [],
+        "Left": -3169.4999279616427,
+        "Top": -1754.3307309429431,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "6a89445849e1406eaf8ffd50a0cf7bc5",
+        "Title": "EDITOR\r\nJean-Marc Couffin - May 2019 - v1.1\r\nJean-Marc Couffin - October 2019 - v1.2\r\nJean-Marc Couffin - February 2020 - v1.3",
+        "Nodes": [],
+        "Left": -2620.1540050516041,
+        "Top": -1753.6446386394612,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "f9ca3664c81442b49f1da9d66de1c9e6",
+        "Title": "CREATOR\r\nJean-Marc Couffin - July 2018 - v1.0\r\nDynamo 2.0",
+        "Nodes": [],
+        "Left": -2880.7299003412595,
+        "Top": -1754.3307309429431,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "bf9dd89622ce405480c3519960c593d5",
+        "Title": "DEPENDANCIES\r\n-\r\nCODE\r\nUI based on Data-shapes\r\nby Mostafa El Ayoubi\r\nhttps://data-shapes.io/",
+        "Nodes": [],
+        "Left": -2368.33500679424,
+        "Top": -1750.5906379591054,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": 6125.53988601404,
+    "Y": 3217.8495874500654,
+    "Zoom": 1.7604567844831636
+  }
+}
