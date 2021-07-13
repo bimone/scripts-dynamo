@@ -1,20 +1,15 @@
-# AddPrefixToSpecificDimensionTypes
+# PinAllLinks
 
 
 ## Capture
-<img src="BIM1_AddPrefixToSpecificDimensionTypes.png" alt="BIM One Inc." /> 
+<img src="BIM1_PinAllLinks.png" alt="BIM One Inc." /> 
 
 ## Démonstration
 
-https://user-images.githubusercontent.com/7872003/125445222-2a00271c-d040-4a00-bf41-e0a1e806143e.mp4
+https://user-images.githubusercontent.com/7872003/125450543-0d6a22d3-5c12-4f52-8b19-e76d03ce7953.mp4
 
 </br>
 
 ## *Demo*
 
-https://user-images.githubusercontent.com/7872003/125445204-60b1ab3b-bee4-45c8-bf1e-24f86c5caea8.mp4
-
-
-
-
-
+https://user-images.githubusercontent.com/7872003/125450493-58a10cd8-23dc-4032-935c-b1f92945083e.mp4
