@@ -6,7 +6,7 @@
 
 ## Démonstration
 <video width="800" controls>
-  <source src="BIM1_AnalyticalON-OFF_FR.mp4" type="video/mp4">
+  <source src="/BIM1_AnalyticalON-OFF/BIM1_AnalyticalON-OFF_FR.mp4" type="video/mp4">
 </video>
 
 </br>
