@@ -4,7 +4,7 @@
 ---
 
 
-| Répertoire des scripts dynamo publiques développé par BIM One | _Directory of all public dynamo scripts developped by BIM One_ |
+| Répertoire des scripts dynamo publiques développés par BIM One | _Directory of all public dynamo scripts developped by BIM One_ |
 | ----------- | ----------- |
 | **Billets originaux:** | **_Original blog post:_** |
 | https://www.bimone.com/fr/Blog/scriptDynamo1 | https://www.bimone.com/en/Blog/Dynamoscript1 |
