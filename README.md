@@ -4,6 +4,12 @@
 ---
 
 
+__Tous les scripts sont développés pour être utilisé en français ou en anglais dans Revit/Dynamo__
+
+__*All scripts are developed to be used both in french and english Revit/Dynamo*__
+
+---
+
 | Répertoire des scripts dynamo publiques développés par BIM One | _Directory of all public dynamo scripts developped by BIM One_ |
 | ----------- | ----------- |
 | **Billets originaux:** | **_Original blog post:_** |
