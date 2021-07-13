@@ -1,20 +1,14 @@
-# AddPrefixToSpecificDimensionTypes
-
+# WorksetsCreationFromExcel
 
 ## Capture
-<img src="BIM1_AddPrefixToSpecificDimensionTypes.png" alt="BIM One Inc." /> 
+<img src="BIM1_WorksetsCreationFromExcel.png" alt="BIM One Inc." /> 
 
 ## Démonstration
 
-https://user-images.githubusercontent.com/7872003/125445222-2a00271c-d040-4a00-bf41-e0a1e806143e.mp4
+https://user-images.githubusercontent.com/7872003/125451862-718d0c16-4ffe-439f-a701-8ba4011e17ac.mp4
 
 </br>
 
 ## *Demo*
 
-https://user-images.githubusercontent.com/7872003/125445204-60b1ab3b-bee4-45c8-bf1e-24f86c5caea8.mp4
-
-
-
-
-
+https://user-images.githubusercontent.com/7872003/125451847-fd3ea094-16c0-4a17-967c-4f8bed67a97e.mp4
