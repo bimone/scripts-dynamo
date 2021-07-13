@@ -6,13 +6,13 @@
 
 ## Démonstration
 
-https://github.com/bimone/scripts-dynamo/blob/main/BIM1_AddPrefixToSpecificDimensionTypes/BIM1_AddPrefixToSpecificDimensionTypes_FR.mp4
+https://user-images.githubusercontent.com/7872003/125445222-2a00271c-d040-4a00-bf41-e0a1e806143e.mp4
 
 </br>
 
 ## *Demo*
 
-https://github.com/bimone/scripts-dynamo/blob/main/BIM1_AddPrefixToSpecificDimensionTypes/BIM1_AddPrefixToSpecificDimensionTypes_ENG.mp4
+https://user-images.githubusercontent.com/7872003/125445204-60b1ab3b-bee4-45c8-bf1e-24f86c5caea8.mp4
 
 
 
