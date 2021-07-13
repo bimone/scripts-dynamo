@@ -6,7 +6,7 @@
 
 ## Démonstration
 <video width="800" controls>
-  <source src="BIM1_AddPrefixToSpecificDimensionTypes_FR.mp4" type="video/mp4">
+  <source src="https://github.com/bimone/scripts-dynamo/blob/main/BIM1_AnalyticalON-OFF/BIM1_AnalyticalON-OFF_ENG.mp4" type="video/mp4">
 </video>
 
 </br>
