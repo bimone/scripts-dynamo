@@ -5,17 +5,16 @@
 <img src="BIM1_AddPrefixToSpecificDimensionTypes.png" alt="BIM One Inc." /> 
 
 ## Démonstration
-<video width="800" controls>
-  <source src="https://github.com/bimone/scripts-dynamo/blob/main/BIM1_AnalyticalON-OFF/BIM1_AnalyticalON-OFF_ENG.mp4" type="video/mp4">
-</video>
+
+https://user-images.githubusercontent.com/7872003/125445222-2a00271c-d040-4a00-bf41-e0a1e806143e.mp4
 
 </br>
 
 ## *Demo*
-<video width="800" controls>
-  <source src="BIM1_AddPrefixToSpecificDimensionTypes_ENG.mp4" type="video/mp4">
-</video>
+
+https://user-images.githubusercontent.com/7872003/125445204-60b1ab3b-bee4-45c8-bf1e-24f86c5caea8.mp4
 
 
 
-<iframe id="video" width="560" height="315" src="https://github.com/bimone/scripts-dynamo/blob/main/BIM1_AnalyticalON-OFF/BIM1_AnalyticalON-OFF_ENG.mp4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+
+
