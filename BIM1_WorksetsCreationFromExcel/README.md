@@ -1,5 +1,9 @@
 # WorksetsCreationFromExcel
 
+Le fichier Workset.xlsx est nécessaire au fonctionnement de ce script
+
+*The **Worksets.xlsx** is required to make the script work*
+
 ## Capture
 <img src="BIM1_WorksetsCreationFromExcel.png" alt="BIM One Inc." /> 
 
