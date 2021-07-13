@@ -1,5 +1,5 @@
 # AddPrefixToSpecificDimensionTypes
----
+
 
 ## Capture
 <img src="BIM1_AnalyticalON-OFF.png" alt="BIM One Inc." /> 
